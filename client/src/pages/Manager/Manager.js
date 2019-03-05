@@ -7,7 +7,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 
-class Volunteers extends Component {
+class Manager extends Component {
   state = {
     volunteers: [],
     name: "",
@@ -112,7 +112,7 @@ class Volunteers extends Component {
               <List>
                 {this.state.volunteers.map(volunteer => (
                   <ListItem key={volunteer._id}>
-                    <Link to={"/volunteers/" + volunteer._id}>
+                    <Link to={"/manager/volunteer/" + volunteer._id}>
                       <strong>
                         {volunteer.name} - {volunteer.volunteerType}
                       </strong>
@@ -131,4 +131,4 @@ class Volunteers extends Component {
   }
 }
 
-export default Volunteers;
+export default Manager;

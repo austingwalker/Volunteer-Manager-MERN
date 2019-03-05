@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import "./Signup.css"
-import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
+import "./Signup.css";
 import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 class Signup extends Component {
   state = { 
     email: "",
-    password: ""
+    password: "",
   };
 
 
@@ -26,16 +24,32 @@ class Signup extends Component {
     console.log(this.state.email)
     console.log(this.state.password)
     if (this.state.email && this.state.password) {
-      API.saveVolunteer({
+      API.signupVolunteer({
         email: this.state.email,
         password: this.state.password,    
       })
-        .then(res => this.loadVolunteers())
+        .then(res => {
+          if(res.data) {
+            console.log("Signup Successful!");
+            this.props.history.push('/login')
+          
+          } else {
+            console.log("Signup error...");
+          }
+        })
         .catch(err => console.log(err));
     }
   };
 
+ 
+
+
+
+
+
   render() {
+
+    
     return (
 
       <Container className="signup" fluid>
@@ -48,11 +62,11 @@ class Signup extends Component {
               <form className="signup">
                 <div className="form-group">
                   <label for="exampleInputEmail1">Email address:</label>
-                  <input type="email" name="email" value={this.state.email} className="form-control" id="email-input" placeholder="Email"/>
+                  <input type="email" onChange={this.handleInputChange} name="email" value={this.state.email} className="form-control" id="email-input" placeholder="Email"/>
                 </div>
                 <div className="form-group">
                   <label for="exampleInputPassword1">Password:</label>
-                  <input type="password" name="password" className="form-control" id="password-input" placeholder="Password"/>
+                  <input type="password" onChange={this.handleInputChange} name="password" value={this.state.password} className="form-control" id="password-input" placeholder="Password"/>
                 </div>
                 <button type="submit" className="btn btn-default"
                  disabled={!(this.state.email && this.state.password)}

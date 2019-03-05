@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "./Login.css"
-import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Jumbotron } from 'reactstrap';
-import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
+
 
 class Login extends Component {
   state = { 
@@ -21,19 +19,26 @@ class Login extends Component {
     });
   };
 
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   console.log(this.state.email)
-  //   console.log(this.state.password)
-  //   if (this.state.email && this.state.password) {
-  //     API.saveVolunteer({
-  //       email: this.state.email,
-  //       password: this.state.password,    
-  //     })
-  //       .then(res => this.loadVolunteers())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.email)
+    console.log(this.state.password)
+    if (this.state.email && this.state.password) {
+      API.loginVolunteer({
+        email: this.state.email,
+        password: this.state.password,    
+      })
+        .then(res => {
+
+          if(res.status === 200){
+          console.log("Login succesful!")
+          this.props.history.push('/new/volunteer')
+
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  };
 
   render() {
     return (
@@ -47,11 +52,12 @@ class Login extends Component {
               <form className="login">
                 <div className="form-group">
                   <label for="exampleInputEmail1">Email address:</label>
-                  <input type="email" name="email" name="email" value={this.state.email} className="form-control" id="email-input" placeholder="Email"/>
+                  <input type="email" onChange={this.handleInputChange}  name="email" value={this.state.email} className="form-control" id="email-input" placeholder="Email"/>
                 </div>
+                 
                 <div className="form-group">
                   <label for="exampleInputPassword1">Password:</label>
-                  <input type="password" name="password" className="form-control" id="password-input" placeholder="Password"/>
+                  <input type="password" onChange={this.handleInputChange}  name="password" value={this.state.password} className="form-control" id="password-input" placeholder="Password"/>
                 </div>
                 <button type="submit" className="btn btn-default"
                 disabled={!(this.state.email && this.state.password)}
