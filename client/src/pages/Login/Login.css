@@ -1,0 +1,16 @@
+
+.login {
+    padding: 30px;
+    /* border: 1px solid black; */
+}
+
+.loginBox {
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.jumboLogin {
+    padding: 20px;
+    text-align: center;
+}

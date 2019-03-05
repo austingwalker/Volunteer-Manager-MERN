@@ -1,0 +1,15 @@
+.signup {
+    padding: 30px;
+    /* border: 1px solid black; */
+}
+
+.signupBox {
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.jumboSignup {
+    padding: 20px;
+    text-align: center;
+}
