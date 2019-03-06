@@ -9,14 +9,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findAllCoaches: function(req, res) {
-    console.log(req.query)
-    db.Volunteer
-      .find({name: "Austin"})
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
   findById: function(req, res) {
     db.Volunteer
       .findById(req.params.id)

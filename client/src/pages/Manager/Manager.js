@@ -1,129 +1,176 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
+import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import VolunteerList from "../../components/VolunteerList";
+import NewVolunteer from "../../components/NewVolunteer";
+// import Coaches from "../../components/Coaches";
 import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
+import "./Manager.css"
+
 
 class Manager extends Component {
   state = {
     volunteers: [],
-    name: "",
-    gender: "",
-    volunteerType: [],
-    email: "",
-    password: ""
+    addVolunteer: false,
+    allVolunteers: false,
+    coaches: false,
+    gameDay: false,
+    fieldMaintenance: false,
+    umpires: false,
+    teamParents: false,
+    mentors: false,
+    benefits: false,
+    staff: false,
   };
 
-  componentDidMount() {
-    this.loadVolunteers();
-  }
-
-  loadVolunteers = () => {
-    API.getVolunteers()
-      .then(res =>
-        this.setState({ volunteers: res.data, name: "", gender: "", password: "", volunteerType: [], email: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteVolunteer = id => {
-    API.deleteVolunteer(id)
-      .then(res => this.loadVolunteers())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
+  handleClick = event => {
+    this.setState({
+      volunteers: [],
+      addVolunteer: false,
+      allVolunteers: false,
+      coaches: false,
+      gameDay: false,
+      fieldMaintenance: false,
+      umpires: false,
+      teamParents: false,
+      mentors: false,
+      benefits: false,
+      staff: false,
+    });
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  };
+    console.log(this.state.coaches)
+    this.renderButton();
+  }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.name && this.state.gender && this.state.volunteerType && this.state.password && this.state.email) {
-      API.saveVolunteer({
-        name: this.state.name,
-        gender: this.state.gender,
-        password: this.state.password,
-        volunteerType: this.state.volunteerType,
-        email: this.state.email
+  renderButton = () => {
+    if(this.state.addVolunteer){
+      return(
+        <NewVolunteer/>
+      );
+  } 
+  //////////////////////////////////////////////////////
+    if(this.state.allVolunteers){
+      API.getVolunteers()
+      .then(res =>
+        this.setState({ volunteers: res.data })
+      )
+      .catch(err => console.log(err));   
+    return(
+      <div>
+        <Jumbotron>
+              <h1>Volunteer List</h1>
+         </Jumbotron>
+        {this.state.volunteers.length ? (
+          <List>
+            {this.state.volunteers.map(volunteer => (
+              <VolunteerList
+                id={volunteer._id}
+                key={volunteer._id}
+                name={volunteer.name}
+                volunteerType={volunteer.volunteerType}
+                />
+              ))}
+          </List>
+      ) : (
+        <h3>No Results to Display</h3>
+      )}
+    </div>
+    );
+    
+  } 
+  //////////////////////////////////////////////////////
+    if(this.state.coaches){
+      API.getCoaches()
+      .then(res => {
+        console.log(res)
+        this.setState({ volunteers: res.data})
+       
       })
-        .then(res => this.loadVolunteers())
-        .catch(err => console.log(err));
-    }
-  };
+      .catch(err => console.log(err));
+      return(
+        <div>
+          {this.state.volunteers.length ? (
+            <List>
+              {this.state.volunteers.map(volunteer => (
+                <VolunteerList
+                  id={volunteer._id}
+                  key={volunteer._id}
+                  name={volunteer.name}
+                  volunteerType={volunteer.volunteerType}
+                  />
+                ))}
+            </List>
+        ) : (
+          <h3>No Results to Display</h3>
+         
+        )}
+      </div>
+        
+      );
+     
+  }
+else {
+    return(
+      <div>Click a button..</div>
+    )
+  }
+  
+  }
+
+  resetState = () => {
+    this.setState({
+      volunteers: [],
+      addVolunteer: false,
+      allVolunteers: false,
+      coaches: false,
+      gameDay: false,
+      fieldMaintenance: false,
+      umpires: false,
+      teamParents: false,
+      mentors: false,
+      benefits: false,
+      staff: false,
+    });
+  }
 
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>Create New Volunteer</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.name}
-                onChange={this.handleInputChange}
-                name="name"
-                placeholder="Name (required)"
-              />
-                <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="Email (required)"
-              />
-              <Input
-                value={this.state.gender}
-                onChange={this.handleInputChange}
-                name="gender"
-                placeholder="Gender (required)"
-              />
-              <Input
-                value={this.state.volunteerType}
-                onChange={this.handleInputChange}
-                name="volunteerType"
-                placeholder="Volunteer Type (required)"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="Password (required)"
-              />
-              <FormBtn
-                disabled={!(this.state.name && this.state.gender && this.state.volunteerType && this.state.password && this.state.email)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Volunteer
-              </FormBtn>
-            </form>
+          <Col md="4">
+            <div className="buttonBox">
+              <button type="button" name="addVolunteer" value='true' onClick={this.handleClick} className="btn btn-primary mngBtn" >Add Volunteer</button>
+              <br/>
+              <button type="button" name="allVolunteers" value="true" onClick={this.handleClick} className="btn btn-primary mngBtn" >All Volunteers</button>
+              <br/>
+              <button type="button" name="coaches" value="true" onClick={this.handleClick} className="btn btn-primary mngBtn">Coaches</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Gameday</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Field Maintenance</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Umpires</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Team Parents</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Mentors</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Benefit</button>
+              <br/>
+              <button type="button" className="btn btn-primary mngBtn">Staff</button>
+              <br/>
+            </div>
           </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Volunteer List</h1>
-            </Jumbotron>
-            {this.state.volunteers.length ? (
-              <List>
-                {this.state.volunteers.map(volunteer => (
-                  <ListItem key={volunteer._id}>
-                    <Link to={"/manager/volunteer/" + volunteer._id}>
-                      <strong>
-                        {volunteer.name} - {volunteer.volunteerType}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteVolunteer(volunteer._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
+          <Col md="8">
+            <div className="dynamicBox">
+                <h5>Manage Volunteers!</h5>
+                {this.renderButton()}
+              
+            </div>
           </Col>
         </Row>
       </Container>

@@ -54,8 +54,8 @@ class Signup extends Component {
 
       <Container className="signup" fluid>
         <Row>
-        <Col size="md-4"/>
-          <Col className="signupBox" size="md-4">
+        <Col md="4"/>
+          <Col className="signupBox" md="4">
             <Jumbotron className="jumboSignup">
               <h1>Create an Account</h1>
             </Jumbotron>
@@ -76,7 +76,7 @@ class Signup extends Component {
             <br/>
             <p>Or login <a href="/login">here</a></p>
           </Col>
-          <Col size="md-4"/>
+          <Col md="4"/>
         </Row>
       </Container>
     );

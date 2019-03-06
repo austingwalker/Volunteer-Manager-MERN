@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Manager from "./pages/Manager";
-import NewVolunteer from "./pages/NewVolunteer";
-// import Volunteers from "./pages/Volunteers";
+import NewVolunteer from "./components/NewVolunteer";
+import VolunteerList from "./components/VolunteerList";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Detail from "./pages/Detail";
@@ -19,6 +19,7 @@ const App = () => (
         <Route exact path="/login" component={Login} />
         <Route exact path="/manager" component={Manager} />
         <Route exact path="/new/volunteer" component={NewVolunteer} />
+        <Route exact path="/volunteer/list" component={VolunteerList} />
         <Route exact path="/manager/volunteer/:id" component={Detail} />
         <Route component={NoMatch} />
       </Switch>

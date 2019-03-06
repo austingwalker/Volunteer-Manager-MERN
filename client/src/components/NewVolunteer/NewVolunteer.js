@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
+import { Container, Row, Col, Jumbotron } from 'reactstrap';
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 
@@ -45,7 +43,7 @@ class Manager extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col>
             <Jumbotron>
               <h1>Create New Volunteer</h1>
             </Jumbotron>

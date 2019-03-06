@@ -1,0 +1,27 @@
+.buttonBox {
+    margin: 20px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.mngTitle{
+    margin-bottom: 20px;
+}
+
+.mngBtn {
+    margin: 5px;
+    width: 200px;
+}
+
+/* ////////////////////////////////////// */
+
+.dynamicBox {
+    margin: 20px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+}
+

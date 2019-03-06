@@ -32,7 +32,7 @@ class Login extends Component {
 
           if(res.status === 200){
           console.log("Login succesful!")
-          this.props.history.push('/new/volunteer')
+          this.props.history.push('/manager')
 
           }
         })
@@ -44,8 +44,8 @@ class Login extends Component {
     return (
       <Container className="login" fluid>
         <Row>
-        <Col size="md-4"/>
-          <Col className="loginBox" size="md-4">
+        <Col md="4"/>
+          <Col className="loginBox" md="4">
             <Jumbotron className="jumboLogin">
               <h1>Login</h1>
             </Jumbotron>
@@ -67,7 +67,7 @@ class Login extends Component {
             <br/>
             <p>Or create and account <a href="/signup">here</a></p>
           </Col>
-          <Col size="md-4"/>
+          <Col md="4"/>
         </Row>
       </Container>
     );

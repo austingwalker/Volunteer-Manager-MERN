@@ -5,6 +5,10 @@ export default {
   getVolunteers: function() {
     return axios.get("/api/volunteers");
   },
+   // Gets all coaches
+   getCoaches: function() {
+    return axios.get("/api/coaches");
+  },
   // Gets the volunteer with the given id
   getVolunteer: function(id) {
     return axios.get("/api/volunteers/" + id);
