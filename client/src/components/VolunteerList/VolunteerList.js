@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Jumbotron } from 'reactstrap';
 import { List, ListItem } from "../../components/List";
+import EmailBox from "../../components/EmailBox";
 import { Input, FormBtn } from "../../components/Form";
 
 class VolunteerList extends Component {
@@ -43,9 +44,7 @@ class VolunteerList extends Component {
       <Container fluid>
         <Row>
         <Col>
-            <Jumbotron>
-              <h1>Volunteer List</h1>
-            </Jumbotron>
+            <EmailBox volunteers={this.props.volunteers}/>
               <List>
                 {this.props.volunteers.map(volunteer => (
                   <ListItem key={volunteer._id}>
