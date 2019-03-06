@@ -12,115 +12,87 @@ import "./Manager.css"
 class Manager extends Component {
   state = {
     volunteers: [],
+    btnClicked: false,
     addVolunteer: false,
-    allVolunteers: false,
-    coaches: false,
-    gameDay: false,
-    fieldMaintenance: false,
-    umpires: false,
-    teamParents: false,
-    mentors: false,
-    benefits: false,
-    staff: false,
   };
 
-  handleClick = event => {
-    this.setState({
-      volunteers: [],
-      addVolunteer: false,
-      allVolunteers: false,
-      coaches: false,
-      gameDay: false,
-      fieldMaintenance: false,
-      umpires: false,
-      teamParents: false,
-      mentors: false,
-      benefits: false,
-      staff: false,
-    });
+ //Add Volunteer Form
+
+ componentDidMount(){
+   this.resetState()
+ }
+
+  addVolunteerClicked = event => {
+    this.resetState()
     const { name, value } = event.target;
     this.setState({
-      [name]: value
-    });
-    console.log(this.state.coaches)
-    this.renderButton();
+          [name]: value,
+        });
+
+      
   }
 
-  renderButton = () => {
-    if(this.state.addVolunteer){
-      return(
-        <NewVolunteer/>
-      );
-  } 
-  //////////////////////////////////////////////////////
-    if(this.state.allVolunteers){
-      API.getVolunteers()
-      .then(res =>
-        this.setState({ volunteers: res.data })
-      )
-      .catch(err => console.log(err));   
-    return(
-      <div>
-        <Jumbotron>
-              <h1>Volunteer List</h1>
-         </Jumbotron>
-        {this.state.volunteers.length ? (
-          <List>
-            {this.state.volunteers.map(volunteer => (
-              <VolunteerList
-                id={volunteer._id}
-                key={volunteer._id}
-                name={volunteer.name}
-                volunteerType={volunteer.volunteerType}
-                />
-              ))}
-          </List>
-      ) : (
-        <h3>No Results to Display</h3>
-      )}
-    </div>
-    );
-    
-  } 
-  //////////////////////////////////////////////////////
-    if(this.state.coaches){
-      API.getCoaches()
-      .then(res => {
-        console.log(res)
-        this.setState({ volunteers: res.data})
-       
-      })
-      .catch(err => console.log(err));
-      return(
-        <div>
-          {this.state.volunteers.length ? (
-            <List>
-              {this.state.volunteers.map(volunteer => (
-                <VolunteerList
-                  id={volunteer._id}
-                  key={volunteer._id}
-                  name={volunteer.name}
-                  volunteerType={volunteer.volunteerType}
-                  />
-                ))}
-            </List>
-        ) : (
-          <h3>No Results to Display</h3>
-         
-        )}
-      </div>
-        
-      );
-     
+  // Button Click Handling
+
+  handleBtnClick = event => {
+    this.resetState()
+    const { name, value } = event.target;
+    this.setState({
+          [name]: value,
+          btnClicked: true
+        });
+
+        switch (name) {
+          case "allVolunteers":
+            this.renderAllVolunteers();
+            break;
+
+          case "coaches":
+            this.renderCoaches();
+            break; 
+
+          case "gameday":
+            this.renderGameday();
+            break; 
+          
+          }
   }
-else {
-    return(
-      <div>Click a button..</div>
-    )
+
+
+  renderAllVolunteers = () => {
+   
+    API.getVolunteers()
+    .then(res => {
+      console.log(res)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+
   }
+
+  renderCoaches = () => {
+   
+    API.getCoaches()
+    .then(res => {
+      console.log("Coaches Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+
+  }
+
+  renderGameday = () => {
+   
+    API.getGameday()
+    .then(res => {
+      console.log("Gameday Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+
+  }
+
   
-  }
-
   resetState = () => {
     this.setState({
       volunteers: [],
@@ -143,13 +115,13 @@ else {
         <Row>
           <Col md="4">
             <div className="buttonBox">
-              <button type="button" name="addVolunteer" value='true' onClick={this.handleClick} className="btn btn-primary mngBtn" >Add Volunteer</button>
+              <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="btn btn-primary mngBtn" >Add Volunteer</button>
               <br/>
-              <button type="button" name="allVolunteers" value="true" onClick={this.handleClick} className="btn btn-primary mngBtn" >All Volunteers</button>
+              <button type="button" name="allVolunteers" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn" >All Volunteers</button>
               <br/>
-              <button type="button" name="coaches" value="true" onClick={this.handleClick} className="btn btn-primary mngBtn">Coaches</button>
+              <button type="button" name="coaches" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Coaches</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Gameday</button>
+              <button type="button" name="gameday" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Gameday</button>
               <br/>
               <button type="button" className="btn btn-primary mngBtn">Field Maintenance</button>
               <br/>
@@ -168,8 +140,11 @@ else {
           <Col md="8">
             <div className="dynamicBox">
                 <h5>Manage Volunteers!</h5>
-                {this.renderButton()}
-              
+
+                {this.state.addVolunteer ? <NewVolunteer/> : null}
+                {this.state.btnClicked ? 
+                  <VolunteerList volunteers={this.state.volunteers}/>  
+                  : null }    
             </div>
           </Col>
         </Row>

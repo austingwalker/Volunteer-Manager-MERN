@@ -5,7 +5,7 @@ module.exports = {
   findCoaches: function(req, res) {
     console.log("Get coaches in Controller hit")
     db.Volunteer
-      .find({volunteerType: "coach"})
+      .find({volunteerType: "umpire"})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

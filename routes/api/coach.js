@@ -3,7 +3,7 @@ const coachController = require("../../controllers/coachController");
 
 // Matches with "/api/coaches"
 router.route("/")
-  .get(coachController.findAll)
+  .get(coachController.findCoaches)
   .post(coachController.create);
 
 // Matches with "/api/coaches/:id"
