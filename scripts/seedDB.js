@@ -60,7 +60,7 @@ const volunteerSeed = [
   {
     name: "Gina",
     email: "Gina@Gina.com",
-    volunteerType: ["coach", "benifit"],
+    volunteerType: ["coach", "benefit"],
     gender: "female",
     password: "jkl",
     date: new Date(Date.now())
@@ -68,7 +68,7 @@ const volunteerSeed = [
   {
     name: "Mal",
     email: "mal@mal.com",
-    volunteerType: ["coach", "benifit"],
+    volunteerType: ["coach", "benefit"],
     gender: "female",
     password: "mnop",
     date: new Date(Date.now())

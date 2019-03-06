@@ -32,7 +32,7 @@ class Manager extends Component {
       
   }
 
-  // Button Click Handling
+// Button Click Handling
 
   handleBtnClick = event => {
     this.resetState()
@@ -55,42 +55,124 @@ class Manager extends Component {
             this.renderGameday();
             break; 
           
+          case "fieldm":
+            this.renderFieldm();
+            break; 
+
+          case "umpires":
+            this.renderUmpires();
+            break; 
+
+          case "teamp":
+            this.renderTeamp();
+            break; 
+
+          case "mentors":
+            this.renderMentors();
+            break; 
+
+          case "benefit":
+            this.renderBenefit();
+            break; 
+
+          case "staff":
+            this.renderStaff();
+            break; 
+          
           }
   }
 
-
+//All Volunteers
   renderAllVolunteers = () => {
-   
     API.getVolunteers()
     .then(res => {
       console.log(res)
       this.setState({ volunteers: res.data })
     })
     .catch(err => console.log(err));   
-
   }
 
+//Coaches
   renderCoaches = () => {
-   
     API.getCoaches()
     .then(res => {
       console.log("Coaches Response " + res.data)
       this.setState({ volunteers: res.data })
     })
     .catch(err => console.log(err));   
-
   }
 
+//All Gameday
   renderGameday = () => {
-   
     API.getGameday()
     .then(res => {
       console.log("Gameday Response " + res.data)
       this.setState({ volunteers: res.data })
     })
     .catch(err => console.log(err));   
-
   }
+
+//Field Maintenance
+  renderFieldm = () => {
+    API.getFieldm()
+    .then(res => {
+      console.log("Fieldm Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+  }
+
+//Umpires
+  renderUmpires = () => {
+    API.getUmpires()
+    .then(res => {
+      console.log("Umpires Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+  }
+
+//Team Parents
+  renderTeamp = () => {
+    API.getTeamp()
+    .then(res => {
+      console.log("Team Parents Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+  }
+
+//Mentors
+  renderMentors = () => {
+    API.getMentors()
+    .then(res => {
+      console.log("Mentors Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+  }
+
+//Benefit
+  renderBenefit = () => {
+    API.getBenefit()
+    .then(res => {
+      console.log("Benefit Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+  }
+
+//Staff
+  renderStaff = () => {
+    API.getStaff()
+    .then(res => {
+      console.log("Staff Response " + res.data)
+      this.setState({ volunteers: res.data })
+    })
+    .catch(err => console.log(err));   
+  }
+
+
 
   
   resetState = () => {
@@ -123,17 +205,17 @@ class Manager extends Component {
               <br/>
               <button type="button" name="gameday" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Gameday</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Field Maintenance</button>
+              <button type="button" name="fieldm" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Field Maintenance</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Umpires</button>
+              <button type="button" name="umpires" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Umpires</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Team Parents</button>
+              <button type="button" name="teamp" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Team Parents</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Mentors</button>
+              <button type="button" name="mentors" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Mentors</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Benefit</button>
+              <button type="button" name="benefit" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Benefit</button>
               <br/>
-              <button type="button" className="btn btn-primary mngBtn">Staff</button>
+              <button type="button" name="staff" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Staff</button>
               <br/>
             </div>
           </Col>

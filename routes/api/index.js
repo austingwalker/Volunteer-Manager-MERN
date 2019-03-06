@@ -5,6 +5,7 @@ const volunteerRoutes = require("./volunteer");
 const coachRoutes = require("./coach");
 const gamedayRoutes = require("./gameday");
 const fieldmhRoutes = require("./fieldm");
+const umpireshRoutes = require("./umpires");
 const teampRoutes = require("./teamp");
 const mentorsRoutes = require("./mentors");
 const benefitRoutes = require("./benefit");
@@ -19,6 +20,8 @@ router.use("/coaches", coachRoutes);
 router.use("/gameday", gamedayRoutes);
 
 router.use("/fieldm", fieldmhRoutes);
+
+router.use("/umpires", umpireshRoutes);
 
 router.use("/teamp", teampRoutes);
 
