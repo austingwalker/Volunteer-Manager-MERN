@@ -68,13 +68,13 @@ class Signup extends Component {
                   <label for="exampleInputPassword1">Password:</label>
                   <input type="password" onChange={this.handleInputChange} name="password" value={this.state.password} className="form-control" id="password-input" placeholder="Password"/>
                 </div>
-                <button type="submit" className="btn btn-default"
+                <button type="submit" className="btn btn-default createBtn"
                  disabled={!(this.state.email && this.state.password)}
                  onClick={this.handleFormSubmit}
                 >Create</button>
               </form>
             <br/>
-            <p>Or login <a href="/login">here</a></p>
+            <p>Or login <a href="/login" className="loginHere">here</a></p>
           </Col>
           <Col md="4"/>
         </Row>

@@ -1,7 +1,7 @@
 .buttonBox {
     margin: 20px;
     padding: 30px;
-    border: 1px solid black;
+    border: 3px solid #D50032;
     border-radius: 25px;
     text-align: center;
 }
@@ -13,6 +13,19 @@
 .mngBtn {
     margin: 5px;
     width: 200px;
+    background-color: #002D72;
+    color: white;
+    border: none;
+   
+    
+}
+
+.mngBtn:hover {
+    background-color: #D50032
+}
+
+.mngBtn:focus {
+    outline-color: #D50032;
 }
 
 /* ////////////////////////////////////// */
@@ -20,8 +33,9 @@
 .dynamicBox {
     margin: 20px;
     padding: 30px;
-    border: 1px solid black;
+    border: 3px solid #D50032;
     border-radius: 25px;
     text-align: center;
+    color: #002D72;
 }
 

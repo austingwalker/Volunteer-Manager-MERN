@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import VolunteerList from "../../components/VolunteerList";
 import NewVolunteer from "../../components/NewVolunteer";
-// import Coaches from "../../components/Coaches";
-import { List, ListItem } from "../../components/List";
 import "./Manager.css"
 
 
 class Manager extends Component {
   state = {
     volunteers: [],
+    volunteerEmails: [],
     btnClicked: false,
     addVolunteer: false,
+    whichBtn: ""
   };
 
  //Add Volunteer Form
@@ -27,6 +26,7 @@ class Manager extends Component {
     const { name, value } = event.target;
     this.setState({
           [name]: value,
+          btnClicked: false
         });
 
       
@@ -87,7 +87,7 @@ class Manager extends Component {
     API.getVolunteers()
     .then(res => {
       console.log(res)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "allVolunteers"})
     })
     .catch(err => console.log(err));   
   }
@@ -97,7 +97,7 @@ class Manager extends Component {
     API.getCoaches()
     .then(res => {
       console.log("Coaches Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "coaches" })
     })
     .catch(err => console.log(err));   
   }
@@ -107,7 +107,7 @@ class Manager extends Component {
     API.getGameday()
     .then(res => {
       console.log("Gameday Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "gameday" })
     })
     .catch(err => console.log(err));   
   }
@@ -117,7 +117,7 @@ class Manager extends Component {
     API.getFieldm()
     .then(res => {
       console.log("Fieldm Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "fieldm" })
     })
     .catch(err => console.log(err));   
   }
@@ -127,7 +127,7 @@ class Manager extends Component {
     API.getUmpires()
     .then(res => {
       console.log("Umpires Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "umpires" })
     })
     .catch(err => console.log(err));   
   }
@@ -137,7 +137,7 @@ class Manager extends Component {
     API.getTeamp()
     .then(res => {
       console.log("Team Parents Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "teamp" })
     })
     .catch(err => console.log(err));   
   }
@@ -147,7 +147,7 @@ class Manager extends Component {
     API.getMentors()
     .then(res => {
       console.log("Mentors Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "mentors" })
     })
     .catch(err => console.log(err));   
   }
@@ -157,7 +157,7 @@ class Manager extends Component {
     API.getBenefit()
     .then(res => {
       console.log("Benefit Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "benefit" })
     })
     .catch(err => console.log(err));   
   }
@@ -167,7 +167,7 @@ class Manager extends Component {
     API.getStaff()
     .then(res => {
       console.log("Staff Response " + res.data)
-      this.setState({ volunteers: res.data })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "staff" })
     })
     .catch(err => console.log(err));   
   }
@@ -197,7 +197,7 @@ class Manager extends Component {
         <Row>
           <Col md="4">
             <div className="buttonBox">
-              <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="btn btn-primary mngBtn" >Add Volunteer</button>
+              <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="mngBtn btn btn-primary " >Add Volunteer</button>
               <br/>
               <button type="button" name="allVolunteers" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn" >All Volunteers</button>
               <br/>
@@ -225,7 +225,21 @@ class Manager extends Component {
 
                 {this.state.addVolunteer ? <NewVolunteer/> : null}
                 {this.state.btnClicked ? 
-                  <VolunteerList volunteers={this.state.volunteers}/>  
+                  <VolunteerList 
+                  volunteers={this.state.volunteers} 
+                  volunteerEmails={this.state.volunteerEmails}
+                  renderAll={this.renderAllVolunteers}
+                  renderCoaches={this.renderCoaches}
+                  renderGameday={this.renderGameday}
+                  renderFieldm={this.renderFieldm}
+                  renderUmpires={this.renderUmpires}
+                  renderTeamp={this.renderTeamp}
+                  renderMentors={this.renderMentors}
+                  renderBenefit={this.renderBenefit}
+                  renderStaff={this.renderStaff}
+
+                  whichBtn={this.state.whichBtn}
+                  />  
                   : null }    
             </div>
           </Col>

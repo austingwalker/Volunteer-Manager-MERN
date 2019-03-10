@@ -1,0 +1,26 @@
+.newVolunteerBox {
+    text-align: left;
+}
+
+.jumbotronBox {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #002D72;
+    color: white;
+}
+
+.genderBox {
+    margin-left: 0px;
+    padding: 0px;
+}
+
+.addBtn {
+    background-color: #002D72;
+    border: none;
+}
+
+.addBtn:hover {
+    background-color:   #D50032;
+}
+ 
+   

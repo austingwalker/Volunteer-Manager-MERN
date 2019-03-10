@@ -10,67 +10,107 @@ mongoose.connect(
 
 const volunteerSeed = [
   {
-    name: "Austin",
+    firstName: "Austin",
+    lastName: "Wills",
     email: "austin@austin.com",
-    volunteerType: ["coach", "umpire"],
     gender: "male",
-    password: "1234",
+    volunteerType: ["Coach", ", ", "Umpire"],
     date: new Date(Date.now())
   },
   {
-    name: "Lauren",
+    firstName: "Lauren",
+    lastName: "Wills",
     email: "Lauren@Lauren.com",
-    volunteerType: ["staff", "game day"],
     gender: "female",
-    password: "5678",
+    volunteerType: ["Staff", ", ", "Gameday Volunteer"],
     date: new Date(Date.now())
   },
   {
-    name: "Charlie",
+    firstName: "Charlie",
+    lastName: "Conner",
     email: "Charlie@Charlie.com",
-    volunteerType: ["coach", "field maintenance"],
     gender: "male",
-    password: "91011",
+    volunteerType: ["Coach", ", ", "Field Maintenance"],
     date: new Date(Date.now())
   },
   {
-    name: "Alex",
+    firstName: "Emily",
+    lastName: "Conner",
+    email: "emily@emily.com",
+    gender: "female",
+    volunteerType: ["Coach", ", ", "Gameday Volunteer"],
+    date: new Date(Date.now())
+  },
+  {
+    firstName: "Alex",
+    lastName: "Larson",
     email: "Alex@Alex.com",
-    volunteerType: ["umpire"],
     gender: "male",
-    password: "abc",
+    volunteerType: ["Umpire"],
     date: new Date(Date.now())
   },
   {
-    name: "Jenna",
+    firstName: "Jenna",
+    lastName: "Larson",
     email: "Jenna@Jenna.com",
-    volunteerType: ["coach", "team parent"],
     gender: "female",
-    password: "def",
+    volunteerType: ["Coach", ", ", "Team Parent"],
     date: new Date(Date.now())
   },
   {
-    name: "John",
+    firstName: "John",
+    lastName: "Newport",
     email: "John@John.com",
-    volunteerType: ["mentor"],
     gender: "male",
-    password: "ghi",
+    volunteerType: ["Mentor"],
     date: new Date(Date.now())
   },
   {
-    name: "Gina",
+    firstName: "Gina",
+    lastName: "Markham",
     email: "Gina@Gina.com",
-    volunteerType: ["coach", "benefit"],
     gender: "female",
-    password: "jkl",
+    volunteerType: ["Coach", ", ", "Benefit Volunteer"],
     date: new Date(Date.now())
   },
   {
-    name: "Mal",
+    firstName: "Mal",
+    lastName: "Baker",
     email: "mal@mal.com",
-    volunteerType: ["coach", "benefit"],
     gender: "female",
-    password: "mnop",
+    volunteerType: ["Coach", ", ", "Benefit Volunteer"],
+    date: new Date(Date.now())
+  },
+  {
+    firstName: "Matt",
+    lastName: "Parker",
+    email: "mat@mat.com",
+    gender: "make",
+    volunteerType: ["Coach", ", ", "Gameday Volunteer", ", ", "Staff", ", ", "Umpire", ", ", "Mentor", ", ", "Field Maintenance"],
+    date: new Date(Date.now())
+  },
+  {
+    firstName: "Lizzy",
+    lastName: "Parker",
+    email: "liz@liz.com",
+    gender: "female",
+    volunteerType: ["Coach", ", ", "Mentor"],
+    date: new Date(Date.now())
+  },
+  {
+    firstName: "Cecil",
+    lastName: "Lombardi",
+    email: "cecil@cecil.com",
+    gender: "male",
+    volunteerType: ["Coach", ", ", "Team Parent"],
+    date: new Date(Date.now())
+  },
+  {
+    firstName: "Davida",
+    lastName: "Lombardi",
+    email: "davida@davida.com",
+    gender: "female",
+    volunteerType: ["Team Parent", ", "],
     date: new Date(Date.now())
   },
   

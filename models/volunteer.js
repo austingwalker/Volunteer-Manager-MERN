@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const volunteerSchema = new Schema({
-  name: { 
+  firstName: { 
+    type: String, 
+    required: true 
+  },
+  lastName: { 
     type: String, 
     required: true 
   },
@@ -18,17 +22,6 @@ const volunteerSchema = new Schema({
   volunteerType: { 
     type: Array, 
     required: true 
-  },
-  password: { 
-    type: String,
-    trim: true,
-    required: "Password is Required",
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      "Password should be longer."
-    ]
   },
   date: { type: Date, default: Date.now }
 });
