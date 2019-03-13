@@ -1,22 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import { Col, Row, Container } from "../../components/Grid";
-// import Jumbotron from "../../components/Jumbotron";
+// import Volunteer from "../../components/Volunteer";
 import { Container, Row, Col, Jumbotron } from 'reactstrap';
 import API from "../../utils/API";
 import "./Detail.css"
 
 class Detail extends Component {
   state = {
-    volunteer: {}
+    volunteer: {},
+    editClicked: false
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+  
   componentDidMount() {
     API.getVolunteer(this.props.match.params.id)
       .then(res => this.setState({ volunteer: res.data }))
       .catch(err => console.log(err));
   }
+
+  editClicked = () => {
+    this.setState({
+      editClicked: true
+    })
+    console.log("editClicked")
+  }
+
+  // updateVolunteer = () => {
+  //   API.updateVolunteer(this.props.match.params.id)
+  //   .then(res => this.setState({ volunteer: res.data }))
+  //   .catch(err => console.log(err));
+  // }
 
   render() {
     return (
@@ -46,11 +59,21 @@ class Detail extends Component {
               </h3>
             </article>
           </Col>
+          {/* <Col md="8">
+            <div className="dynamicBox">
+                <h5>Manage Volunteers!</h5>
+
+                {this.state.addVolunteer ? <NewVolunteer/> : null}
+                {this.state.editClicked ? 
+                  <Volunteer volunteer={this.state.volunteer}/> 
+                  : null }    
+            </div>
+          </Col> */}
           
         </Row>
         <Row>
           <Col >
-            <Link to="/manager" className="homeBtn">← Back to Home</Link>
+            <Link to="/manager" className="homeBtn">← Back to Home</Link> | <button type="button" name="edit" value="true" onClick={this.editClicked} className="btn btn-primary mngBtn">Edit Volunteer</button>
           </Col>
         </Row>
       </Container>
