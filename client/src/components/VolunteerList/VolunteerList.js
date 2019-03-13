@@ -11,7 +11,8 @@ import "./VolunteerList.css"
 class VolunteerList extends Component {
  state = {
    email: "",
-   volunteers: []
+   volunteers: [],
+   singleEmail: ""
  }
 
 // componentDidMount(){
@@ -65,6 +66,11 @@ class VolunteerList extends Component {
     } 
   }
 
+  handleEmail = e => {
+
+    this.setState({ singleEmail: e.target.value})
+}
+
 
   // handleInputChange = event => {
   //   const { name, value } = event.target;
@@ -91,7 +97,11 @@ class VolunteerList extends Component {
         <Row>
         <Col>
   
-            <EmailBox volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}/>
+            <EmailBox 
+            volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}singleEmail={this.state.singleEmail}
+            handleEmail={this.handleEmail}
+            
+            />
           
           
           <div className="volunteerListBox">
@@ -99,7 +109,7 @@ class VolunteerList extends Component {
               <List >
                 {this.props.volunteers.map(volunteer => (
                   <ListItem key={volunteer._id}>
-                    <Link to={"/manager/volunteer/" + volunteer._id}>
+                    <Link to={"/manager/volunteer/" + volunteer._id} id={volunteer._id}>
                       <strong>
                         {volunteer.firstName} {volunteer.lastName}
                       </strong>
