@@ -6,11 +6,7 @@ import "./EmailBox.css"
 const EmailBox = props => {
 
     const emails = props.volunteers.map(volunteer => volunteer.email);
-    console.log("emails: ", emails);
-    console.log("emails: ", emails);
-  
-
-
+    
     return (
     <div className="emailBox">
 

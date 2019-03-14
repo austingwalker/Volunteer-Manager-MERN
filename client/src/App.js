@@ -12,7 +12,7 @@ import Nav from "./components/Nav";
 const App = () => (
   <Router>
     <div>
-      <Nav />
+    <Nav/>
       <Switch>
         {/* {/* <Route exact path="/" component={Signup} /> */}
         <Route exact path="/signup" component={Signup} /> 

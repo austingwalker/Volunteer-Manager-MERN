@@ -1,16 +1,14 @@
 const router = require("express").Router();
 const teampController = require("../../controllers/teampController");
 
-// Matches with "/api/coaches"
+// Matches with "/api/teamp"
 router.route("/")
-  .get(teampController.findTeamp)
-  // .post(teampController.create);
+  .get(teampController.findTeamp);
 
-// Matches with "/api/coaches/:id"
+// Matches with "/api/teamp/:id"
 router
   .route("/:id")
   .get(teampController.findById)
-  // .put(teampController.update)
   .delete(teampController.remove);
 
 

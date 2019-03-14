@@ -1,16 +1,14 @@
 const router = require("express").Router();
 const gamedayController = require("../../controllers/gamedayController");
 
-// Matches with "/api/coaches"
+// Matches with "/api/gameday"
 router.route("/")
   .get(gamedayController.findGameday)
-  // .post(gamedayController.create);
 
-// Matches with "/api/coaches/:id"
+// Matches with "/api/gameday/:id"
 router
   .route("/:id")
   .get(gamedayController.findById)
-  // .put(gamedayController.update)
   .delete(gamedayController.remove);
 
 

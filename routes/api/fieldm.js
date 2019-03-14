@@ -1,16 +1,14 @@
 const router = require("express").Router();
 const fieldmController = require("../../controllers/fieldmController");
 
-// Matches with "/api/coaches"
+// Matches with "/api/fieldm"
 router.route("/")
-  .get(fieldmController.findFieldm)
-  // .post(fieldmController.create);
+  .get(fieldmController.findFieldm);
 
-// Matches with "/api/coaches/:id"
+// Matches with "/api/fieldm/:id"
 router
   .route("/:id")
   .get(fieldmController.findById)
-  // .put(fieldmController.update)
   .delete(fieldmController.remove);
 
 

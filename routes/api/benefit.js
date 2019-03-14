@@ -1,16 +1,14 @@
 const router = require("express").Router();
 const benefitController = require("../../controllers/benefitController");
 
-// Matches with "/api/coaches"
+// Matches with "/api/benefit"
 router.route("/")
-  .get(benefitController.findBenefit)
-  // .post(benefitController.create);
+  .get(benefitController.findBenefit);
 
-// Matches with "/api/coaches/:id"
+// Matches with "/api/benefit/:id"
 router
   .route("/:id")
   .get(benefitController.findById)
-  // .put(benefitController.update)
   .delete(benefitController.remove);
 
 

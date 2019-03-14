@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const updateController = require("../../controllers/updateController");
 
-// Matches with "/api/coaches"
+// Matches with "/api/update"
 router.route("/")
   .put(updateController.update);
 

@@ -10,10 +10,7 @@ export default {
      console.log("Get coaches in API hit")
     return axios.get("/api/coaches");
   },
-//   getCoaches: function() {
-//     console.log("Get coaches in API hit")
-//    return axios.get("/api/volunteers/coaches");
-//  },
+
 getGameday: function() {
   console.log("Get getGameday in API hit")
  return axios.get("/api/gameday");
@@ -52,7 +49,6 @@ getStaff: function() {
   },
   updateVolunteer: function(volunteerData) {
     console.log("Put updateVol in API hit")
-    console.log(volunteerData)
     return axios.put("/api/update", volunteerData);
   },
   // Saves a volunteer to the database

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Container, Row, Col, Jumbotron } from 'reactstrap';
-import { List, ListItem } from "../../components/List";
 import CheckBox from "../../components/CheckBox";
-import { Input, FormBtn, Radio } from "../../components/Form";
 import "./NewVolunteer.css"
 
 class Manager extends Component {
