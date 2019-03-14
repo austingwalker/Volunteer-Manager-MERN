@@ -3,14 +3,14 @@ const teampController = require("../../controllers/teampController");
 
 // Matches with "/api/coaches"
 router.route("/")
-  .get(teampController.findCoaches)
-  .post(teampController.create);
+  .get(teampController.findTeamp)
+  // .post(teampController.create);
 
 // Matches with "/api/coaches/:id"
 router
   .route("/:id")
   .get(teampController.findById)
-  .put(teampController.update)
+  // .put(teampController.update)
   .delete(teampController.remove);
 
 

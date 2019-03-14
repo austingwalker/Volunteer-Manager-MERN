@@ -71,7 +71,8 @@ class Manager extends Component {
     let chosenTypes = this.state.volunteerType
     chosenTypes.map(type => {
       if(type.isChecked)
-      arr.push(type.name + ", ")
+      arr.push(type.name, ", ")
+     
       
      })
      console.log("Volunteer types: " + arr)
@@ -100,7 +101,7 @@ class Manager extends Component {
               {name: "Umpire", isChecked: false},
               {name: "Team Parent", isChecked: false},
               {name: "Mentor", isChecked: false},
-              {name: "Benefit", isChecked: false},
+              {name: "Benefit Volunteer", isChecked: false},
               {name: "Staff", isChecked: false},
         
             ]

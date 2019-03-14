@@ -3,14 +3,14 @@ const fieldmController = require("../../controllers/fieldmController");
 
 // Matches with "/api/coaches"
 router.route("/")
-  .get(fieldmController.findCoaches)
-  .post(fieldmController.create);
+  .get(fieldmController.findFieldm)
+  // .post(fieldmController.create);
 
 // Matches with "/api/coaches/:id"
 router
   .route("/:id")
   .get(fieldmController.findById)
-  .put(fieldmController.update)
+  // .put(fieldmController.update)
   .delete(fieldmController.remove);
 
 

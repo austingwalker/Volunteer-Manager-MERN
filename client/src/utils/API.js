@@ -50,6 +50,11 @@ getStaff: function() {
   deleteVolunteer: function(id) {
     return axios.delete("/api/volunteers/" + id);
   },
+  updateVolunteer: function(volunteerData) {
+    console.log("Put updateVol in API hit")
+    console.log(volunteerData)
+    return axios.put("/api/update", volunteerData);
+  },
   // Saves a volunteer to the database
   saveVolunteer: function(volunteerData) {
     return axios.post("/api/volunteers", volunteerData);

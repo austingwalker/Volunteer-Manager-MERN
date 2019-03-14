@@ -4,13 +4,13 @@ const coachController = require("../../controllers/coachController");
 // Matches with "/api/coaches"
 router.route("/")
   .get(coachController.findCoaches)
-  .post(coachController.create);
+  // .post(coachController.create);
 
 // Matches with "/api/coaches/:id"
 router
   .route("/:id")
   .get(coachController.findById)
-  .put(coachController.update)
+  // .put(coachController.update)
   .delete(coachController.remove);
 
 

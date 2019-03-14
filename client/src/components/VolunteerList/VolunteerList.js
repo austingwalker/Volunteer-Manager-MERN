@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Jumbotron } from 'reactstrap';
+import { Container, Row, Col} from 'reactstrap';
 import { List, ListItem } from "../../components/List";
 import EmailBox from "../../components/EmailBox";
-import { Input, FormBtn } from "../../components/Form";
 import "./VolunteerList.css"
 
 class VolunteerList extends Component {
@@ -15,17 +14,6 @@ class VolunteerList extends Component {
    singleEmail: ""
  }
 
-// componentDidMount(){
-//   this.loadVolunteers()
-// }
-
-  // loadVolunteers = () => {
-  //   API.getVolunteers()
-  //     .then(res =>
-  //       this.setState({ volunteers: res.data })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
   deleteVolunteer = id => {
     API.deleteVolunteer(id)
@@ -69,27 +57,7 @@ class VolunteerList extends Component {
   handleEmail = e => {
 
     this.setState({ singleEmail: e.target.value})
-}
-
-
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-
-
-  // handleSingleEmail = e => {
-  //   console.log(e.target.value)
-  //   const newEmail = `mailto:${e.target.value}`
-  //   this.setState({
-  //     email: newEmail
-  //   })
-    
-  // }
-
-
+  }
 
   render() {
     return (
@@ -100,12 +68,11 @@ class VolunteerList extends Component {
             <EmailBox 
             volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}singleEmail={this.state.singleEmail}
             handleEmail={this.handleEmail}
-            
             />
           
-          
           <div className="volunteerListBox">
-          <label >Click Volunteer to View Info</label>
+          <label >Click Volunteer to View and Edit Info</label>
+          <label className="x">Click the <span className="xColor">✗</span> to delete volunteer</label>
               <List >
                 {this.props.volunteers.map(volunteer => (
                   <ListItem key={volunteer._id}>

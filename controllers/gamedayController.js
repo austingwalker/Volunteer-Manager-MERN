@@ -2,8 +2,8 @@ const db = require("../models");
 
 // Defining methods for the booksController
 module.exports = {
-  findCoaches: function(req, res) {
-    console.log("Get coaches in Controller hit")
+  findGameday: function(req, res) {
+    console.log("Get gameday in Controller hit")
     db.Volunteer
       .find({volunteerType: "Gameday Volunteer"})
       .sort({ lastName: 1 })

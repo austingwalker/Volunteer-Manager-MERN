@@ -2,6 +2,7 @@ const router = require("express").Router();
 const signupRoutes = require("./signup");
 const loginRoutes = require("./login");
 const volunteerRoutes = require("./volunteer");
+const updateRoutes = require("./updateRoutes");
 const coachRoutes = require("./coach");
 const gamedayRoutes = require("./gameday");
 const fieldmhRoutes = require("./fieldm");
@@ -14,6 +15,8 @@ const staffRoutes = require("./staff");
 
 // Volunteer routes
 router.use("/volunteers", volunteerRoutes);
+
+router.use("/update", updateRoutes);
 
 router.use("/coaches", coachRoutes);
 

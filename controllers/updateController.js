@@ -1,15 +1,15 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods for the updateController
 module.exports = {
-  findAll: function(req, res) {
-    db.Volunteer
-      .find(req.query)
-      .sort({ lastName: 1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-
+  // findCoaches: function(req, res) {
+  //   console.log("Get coaches in Controller hit")
+  //   db.Volunteer
+  //     .find({volunteerType: "Umpire"})
+  //     .sort({ lastName: 1 })
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   findById: function(req, res) {
     db.Volunteer
       .findById(req.params.id)
@@ -24,7 +24,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Volunteer
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.body.ID }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

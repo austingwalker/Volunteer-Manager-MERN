@@ -19,6 +19,7 @@ const EmailBox = props => {
             <div className="form-group">
                 <label >Select a Specific Volunteer to Email</label>
                 <select className="form-control" id="exampleFormControlSelect1" placeholder="Email Addresses" value={props.singleEmail} onChange={props.handleEmail}> >
+                <option defaultValue>Choose...</option>
                 {props.volunteers.map(volunteer => (
                 <option key={volunteer._id} name="email">{volunteer.email}</option>
                 ))}  

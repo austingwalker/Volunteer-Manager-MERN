@@ -3,14 +3,14 @@ const gamedayController = require("../../controllers/gamedayController");
 
 // Matches with "/api/coaches"
 router.route("/")
-  .get(gamedayController.findCoaches)
-  .post(gamedayController.create);
+  .get(gamedayController.findGameday)
+  // .post(gamedayController.create);
 
 // Matches with "/api/coaches/:id"
 router
   .route("/:id")
   .get(gamedayController.findById)
-  .put(gamedayController.update)
+  // .put(gamedayController.update)
   .delete(gamedayController.remove);
 
 

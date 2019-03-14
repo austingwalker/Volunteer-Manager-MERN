@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../../components/Grid";
-// import Volunteer from "../../components/Volunteer";
+import UpdateVolunteer from "../../components/UpdateVolunteer";
 import { Container, Row, Col, Jumbotron } from 'reactstrap';
 import API from "../../utils/API";
 import "./Detail.css"
@@ -18,6 +17,12 @@ class Detail extends Component {
       .catch(err => console.log(err));
   }
 
+  reload = () => {
+    API.getVolunteer(this.props.match.params.id)
+      .then(res => this.setState({ volunteer: res.data }))
+      .catch(err => console.log(err));
+  }
+
   editClicked = () => {
     this.setState({
       editClicked: true
@@ -25,11 +30,14 @@ class Detail extends Component {
     console.log("editClicked")
   }
 
-  // updateVolunteer = () => {
-  //   API.updateVolunteer(this.props.match.params.id)
-  //   .then(res => this.setState({ volunteer: res.data }))
-  //   .catch(err => console.log(err));
-  // }
+  cancelClicked = () => {
+    this.setState({
+      editClicked: false
+    })
+    console.log("cancelClicked")
+  }
+
+
 
   render() {
     return (
@@ -49,6 +57,9 @@ class Detail extends Component {
             <article className="infoBox">
               <h1>Volunteer Info</h1>
               <h3>
+                Name: {this.state.volunteer.firstName} {this.state.volunteer.lastName}
+              </h3>
+              <h3>
                 Email: {this.state.volunteer.email}
               </h3>
               <h3>
@@ -58,24 +69,25 @@ class Detail extends Component {
                 Type of Volunteer: {this.state.volunteer.volunteerType}
               </h3>
             </article>
-          </Col>
-          {/* <Col md="8">
-            <div className="dynamicBox">
-                <h5>Manage Volunteers!</h5>
-
-                {this.state.addVolunteer ? <NewVolunteer/> : null}
-                {this.state.editClicked ? 
-                  <Volunteer volunteer={this.state.volunteer}/> 
-                  : null }    
-            </div>
-          </Col> */}
-          
-        </Row>
-        <Row>
-          <Col >
             <Link to="/manager" className="homeBtn">← Back to Home</Link> | <button type="button" name="edit" value="true" onClick={this.editClicked} className="btn btn-primary mngBtn">Edit Volunteer</button>
           </Col>
+          <Col md="8">
+            <div className="dynamicBox">
+                <h5>Update Volunteer!</h5>
+
+               
+                {this.state.editClicked ? 
+                  <UpdateVolunteer 
+                  volunteer={this.state.volunteer}
+                  cancelClicked={this.cancelClicked}
+                  reload={this.reload}
+                  /> 
+                  : null }    
+            </div>
+          </Col>
+          
         </Row>
+       
       </Container>
     );
   }
