@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import "./App.css";
 
 const App = () => (
   <Router>
@@ -24,6 +26,7 @@ const App = () => (
         <Route exact path="/manager/volunteer/:id" component={Detail} />
         <Route component={NoMatch} />
       </Switch>
+     <Footer/> 
     </div>
   </Router>
 );

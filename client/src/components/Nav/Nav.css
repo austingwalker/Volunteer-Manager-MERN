@@ -1,6 +1,13 @@
 .navbar {
-    background: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png");
-    background-size: 2000px 75px;
+    /* background: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png"); */
+    background: url("http://i66.tinypic.com/b9dgfl.jpg");
+    
+    
+    /* <a href="http://tinypic.com?ref=b9dgfl" target="_blank"><img src="http://i66.tinypic.com/b9dgfl.jpg" border="0" alt="Image and video hosting by TinyPic"></a> */
+
+
+
+    /* background-size: 2000px 75px; */
     background-repeat: no-repeat;
     background-position: center;
 }

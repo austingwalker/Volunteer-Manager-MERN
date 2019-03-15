@@ -221,7 +221,7 @@ class Manager extends Component {
           </Col>
           <Col md="8">
             <div className="dynamicBox">
-                <h5>Manage Volunteers!</h5>
+                <h2>Manage Volunteers!</h2>
 
                 {this.state.addVolunteer ? <NewVolunteer/> : null}
                 {this.state.btnClicked ? 

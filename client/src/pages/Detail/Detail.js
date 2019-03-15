@@ -51,9 +51,10 @@ class Detail extends Component {
             </Jumbotron>
           </Col>
         </Row>
+        
         <Row>
           
-          <Col >
+          <Col md="5" className="infoBoxCol">
             <article className="infoBox">
               <h1>Volunteer Info</h1>
               <h3>
@@ -68,12 +69,14 @@ class Detail extends Component {
               <h3>
                 Type of Volunteer: {this.state.volunteer.volunteerType}
               </h3>
+              <button type="button" name="edit" value="true" onClick={this.editClicked} className="btn btn-primary editBtn">Edit Volunteer</button>
             </article>
-            <Link to="/manager" className="homeBtn">← Back to Home</Link> | <button type="button" name="edit" value="true" onClick={this.editClicked} className="btn btn-primary mngBtn">Edit Volunteer</button>
+            <Link to="/manager" className="homeBtn">← Back to Home</Link>
+            
           </Col>
-          <Col md="8">
-            <div className="dynamicBox">
-                <h5>Update Volunteer!</h5>
+          <Col md="7">
+            <div className="updateBox">
+                <h2>Update Volunteer!</h2>
 
                
                 {this.state.editClicked ? 
@@ -87,6 +90,7 @@ class Detail extends Component {
           </Col>
           
         </Row>
+        
        
       </Container>
     );
