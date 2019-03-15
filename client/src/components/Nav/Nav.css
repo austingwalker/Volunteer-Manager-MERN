@@ -1,14 +1,6 @@
 .navbar {
-    /* background: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png"); */
-    background: url("http://i66.tinypic.com/b9dgfl.jpg");
-    
-    
-    /* <a href="http://tinypic.com?ref=b9dgfl" target="_blank"><img src="http://i66.tinypic.com/b9dgfl.jpg" border="0" alt="Image and video hosting by TinyPic"></a> */
-
-
-
-    /* background-size: 2000px 75px; */
-    background-repeat: no-repeat;
+    background: url("http://i63.tinypic.com/eg1umw.jpg");
+    /* background-repeat: no-repeat; */
     background-position: center;
 }
 
@@ -17,34 +9,3 @@
     text-shadow: 0 2px 0 black;
 }
 
-/* .blue {
-    background-color: #002D72;
-    height: 60px;
-    margin: 0;
-    border-right: 30px solid #002D72;
-} */
-
-/* .blue {
-    background-color: #002D72;
-    height: 60px;
-    height: 0;
-    margin: 0;
-    border-right: 50px solid #D50032;
-    border-bottom: 30px solid #002D72;
-    display: block;
-} */
-
-/* .white {
-    background-color: white;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-}
-
-.red {
-    background-color: #D50032;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-    border-left: 30px solid #D50032;
-} */
