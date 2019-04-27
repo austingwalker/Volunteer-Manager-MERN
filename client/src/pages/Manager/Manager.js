@@ -197,10 +197,10 @@ class Manager extends Component {
 
       
         <Row>
-<Col className="sidebarCol">
+<Col md="2" className="sidebarCol">
           <div className="wrapper wrapperBox">
     
-    <nav id="sidebar" className="sidebarBox">
+    <nav  className="sidebarBox">
   
 
         <ul className="list-unstyled components">
@@ -265,7 +265,7 @@ class Manager extends Component {
               <br/>
             </div>
           </Col> */}
-          <Col md="9">
+          <Col md="10">
             <div className="dynamicBox">
                 <h2>Manage Volunteers!</h2>
 

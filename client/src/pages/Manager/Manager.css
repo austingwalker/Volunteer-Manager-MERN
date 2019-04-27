@@ -8,11 +8,12 @@
 } */
 .sidebarBox {
     height: 100%;
-    border-right: 2px solid grey;
+    width: 100%;
+    
     /* border-top: 3px solid #D50032; */
     /* border-radius: 25px; */
     text-align: left;
-    background-color: white;
+    background-color: #eee;
 }
 
 .sidebarTitle {
@@ -46,6 +47,7 @@
     color: black;
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
+    border-right: 2px solid grey;
     border-radius: 0;
     text-align: left;
 }
@@ -56,8 +58,14 @@
     background-color: white;
     color: black;
     border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-right: 2px solid grey;
     border-radius: 0;
     text-align: left;
+}
+
+.sidebarStaffBtn:hover {
+    background-color:#D50032;
 }
 
 /* .mngBtn:hover {
@@ -74,7 +82,6 @@
     margin: 20px;
     padding: 30px;
     border: 3px solid #D50032;
-    /* border-radius: 25px; */
     text-align: center;
     color: #002D72;
     background-color: white;
