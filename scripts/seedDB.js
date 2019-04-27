@@ -14,7 +14,7 @@ const volunteerSeed = [
     lastName: "Wills",
     email: "austin@austin.com",
     gender: "Male",
-    volunteerType: ["Coach", ", ", "Umpire"],
+    volunteerType: ["Coach", "Umpire"],
     date: new Date(Date.now())
   },
   {
@@ -22,7 +22,7 @@ const volunteerSeed = [
     lastName: "Wills",
     email: "Lauren@Lauren.com",
     gender: "Female",
-    volunteerType: ["Staff", ", ", "Gameday Volunteer"],
+    volunteerType: ["Staff", "Gameday Volunteer"],
     date: new Date(Date.now())
   },
   {
@@ -30,7 +30,7 @@ const volunteerSeed = [
     lastName: "Conner",
     email: "Charlie@Charlie.com",
     gender: "Male",
-    volunteerType: ["Coach", ", ", "Field Maintenance"],
+    volunteerType: ["Coach", "Field Maintenance"],
     date: new Date(Date.now())
   },
   {
@@ -38,7 +38,7 @@ const volunteerSeed = [
     lastName: "Conner",
     email: "emily@emily.com",
     gender: "Female",
-    volunteerType: ["Coach", ", ", "Gameday Volunteer"],
+    volunteerType: ["Coach", "Gameday Volunteer"],
     date: new Date(Date.now())
   },
   {
@@ -54,7 +54,7 @@ const volunteerSeed = [
     lastName: "Larson",
     email: "Jenna@Jenna.com",
     gender: "Female",
-    volunteerType: ["Coach", ", ", "Team Parent"],
+    volunteerType: ["Coach", "Team Parent"],
     date: new Date(Date.now())
   },
   {
@@ -70,7 +70,7 @@ const volunteerSeed = [
     lastName: "Markham",
     email: "Gina@Gina.com",
     gender: "Female",
-    volunteerType: ["Coach", ", ", "Benefit Volunteer"],
+    volunteerType: ["Coach", "Benefit Volunteer"],
     date: new Date(Date.now())
   },
   {
@@ -78,7 +78,7 @@ const volunteerSeed = [
     lastName: "Baker",
     email: "mal@mal.com",
     gender: "Female",
-    volunteerType: ["Coach", ", ", "Benefit Volunteer"],
+    volunteerType: ["Coach", "Benefit Volunteer"],
     date: new Date(Date.now())
   },
   {
@@ -86,7 +86,7 @@ const volunteerSeed = [
     lastName: "Parker",
     email: "mat@mat.com",
     gender: "Male",
-    volunteerType: ["Coach", ", ", "Gameday Volunteer", ", ", "Staff", ", ", "Umpire", ", ", "Mentor", ", ", "Field Maintenance"],
+    volunteerType: ["Coach", ", ", "Gameday Volunteer", "Staff", "Umpire", "Mentor", "Field Maintenance"],
     date: new Date(Date.now())
   },
   {
@@ -94,7 +94,7 @@ const volunteerSeed = [
     lastName: "Parker",
     email: "liz@liz.com",
     gender: "Female",
-    volunteerType: ["Coach", ", ", "Mentor"],
+    volunteerType: ["Coach", "Mentor"],
     date: new Date(Date.now())
   },
   {
@@ -102,7 +102,7 @@ const volunteerSeed = [
     lastName: "Lombardi",
     email: "cecil@cecil.com",
     gender: "Male",
-    volunteerType: ["Coach", ", ", "Team Parent"],
+    volunteerType: ["Coach", "Team Parent"],
     date: new Date(Date.now())
   },
   {
@@ -110,7 +110,7 @@ const volunteerSeed = [
     lastName: "Lombardi",
     email: "davida@davida.com",
     gender: "Female",
-    volunteerType: ["Team Parent", ", "],
+    volunteerType: ["Team Parent"],
     date: new Date(Date.now())
   },
   

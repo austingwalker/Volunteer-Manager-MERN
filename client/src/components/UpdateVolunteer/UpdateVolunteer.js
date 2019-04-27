@@ -64,7 +64,7 @@ handleUpdate = event => {
     let chosenTypes = this.state.volunteerType
     chosenTypes.map(type => {
       if(type.isChecked)
-      arr.push(type.name, ", ")
+      arr.push(type.name)
       
       
      })
@@ -101,6 +101,7 @@ handleUpdate = event => {
             ]
           })
           this.props.cancelClicked();
+          // this.props.types();
           this.props.reload();
         })
         .catch(err => console.log(err));

@@ -64,6 +64,49 @@ class VolunteerList extends Component {
       <Container className="volunteerListContainer" fluid>
         <Row>
         <Col>
+
+        {/* ---------------------------------------------------------------------------------------------------------------------
+        Work In Progress */}
+            {/* <EmailBox 
+              volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}singleEmail={this.state.singleEmail}
+              handleEmail={this.handleEmail}
+            />
+
+              <div className="card" >
+                <div className="card-header">
+                  Volunteers
+                </div>
+                {this.props.volunteers.map(volunteer => (
+                <nav className="navbarBtns navbar-expand-lg navbar-light bg-light">
+                <ul key={volunteer._id} className="list-group list-group-flush">
+    
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav">
+                  <li className="nav-item active">
+                  <Link to={"/manager/volunteer/" + volunteer._id} id={volunteer._id}>
+                    <div key={volunteer._id} className="list-group-item volName">{volunteer.firstName} {volunteer.lastName}</div>
+                  </Link>
+                  </li>
+                    <li className="nav-item active">
+                      <button type="submit" className="btn btn-primary volBtn">Edit</button>
+                    </li>
+                    <li className="nav-item">
+                      <button type="submit" className="btn btn-primary volBtn">Email</button>
+                    </li>
+                    <li className="nav-item">
+                      <button type="submit" className="btn btn-primary volBtn">Delete</button>
+                    </li>
+                    
+                  </ul>
+                </div>
+              
+            
+            </ul>
+            </nav>
+            ))}
+          </div> */}
+
+          {/* ----------------------------------------------------------------------------------------------------------------- */}
   
             <EmailBox 
             volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}singleEmail={this.state.singleEmail}

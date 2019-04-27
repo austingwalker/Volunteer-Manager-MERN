@@ -8,18 +8,26 @@ import "./Detail.css"
 class Detail extends Component {
   state = {
     volunteer: {},
-    editClicked: false
+    editClicked: false,
+    types: []
   };
   
   componentDidMount() {
     API.getVolunteer(this.props.match.params.id)
-      .then(res => this.setState({ volunteer: res.data }))
+      .then(res => { 
+        this.setState({ volunteer: res.data })
+        this.parseType()
+      })
       .catch(err => console.log(err));
   }
 
+
+
   reload = () => {
     API.getVolunteer(this.props.match.params.id)
-      .then(res => this.setState({ volunteer: res.data }))
+      .then(res => { this.setState({ volunteer: res.data })
+      this.parseType()
+    })
       .catch(err => console.log(err));
   }
 
@@ -27,7 +35,17 @@ class Detail extends Component {
     this.setState({
       editClicked: true
     })
-    console.log("editClicked")
+    console.log(this.state.volunteer.volunteerType)
+    this.parseType()
+  }
+
+  parseType = () => {
+    let types = []
+    {this.state.volunteer.volunteerType.map(type => (
+      types.push(type + ", ")
+    ))}
+    this.setState({ types: types})
+    console.log(types)
   }
 
   cancelClicked = () => {
@@ -40,6 +58,7 @@ class Detail extends Component {
 
 
   render() {
+   
     return (
       <Container fluid>
         <Row>
@@ -53,7 +72,7 @@ class Detail extends Component {
         </Row>
         
         <Row>
-          
+        
           <Col md="5" className="infoBoxCol">
             <article className="infoBox">
               <h1>Volunteer Info</h1>
@@ -67,13 +86,15 @@ class Detail extends Component {
                 Gender: {this.state.volunteer.gender}
               </h3>
               <h3>
-                Type of Volunteer: {this.state.volunteer.volunteerType}
+                Type of Volunteer: {this.state.types}
               </h3>
+
               <button type="button" name="edit" value="true" onClick={this.editClicked} className="btn btn-primary editBtn">Edit Volunteer</button>
             </article>
             <Link to="/manager" className="homeBtn">← Back to Home</Link>
             
           </Col>
+ 
           <Col md="7">
             <div className="updateBox">
                 <h2>Update Volunteer!</h2>
@@ -83,6 +104,7 @@ class Detail extends Component {
                   <UpdateVolunteer 
                   volunteer={this.state.volunteer}
                   cancelClicked={this.cancelClicked}
+                  types={this.parseType}
                   reload={this.reload}
                   /> 
                   : null }    

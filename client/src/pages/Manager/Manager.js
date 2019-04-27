@@ -194,8 +194,54 @@ class Manager extends Component {
   render() {
     return (
       <Container fluid>
+
+      
         <Row>
-          <Col md="4">
+<Col className="sidebarCol">
+          <div className="wrapper wrapperBox">
+    
+    <nav id="sidebar" className="sidebarBox">
+  
+
+        <ul className="list-unstyled components">
+           
+            <li className="active">
+              <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="sidebarBtn btn  " >Add Volunteer</button>
+            </li>
+            <li>
+              <button type="button" name="allVolunteers" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn" >All Volunteers</button>
+            </li>
+            <li>
+              <button type="button" name="coaches" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Coaches</button>
+            </li>
+            <li>
+              <button type="button" name="gameday" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Gameday</button>
+            </li>
+            <li>
+              <button type="button" name="fieldm" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Field Maintenance</button>
+            </li>
+            <li>
+              <button type="button" name="umpires" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Umpires</button>
+            </li>
+            <li>
+              <button type="button" name="teamp" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Team Parents</button>
+            </li>
+            <li>
+              <button type="button" name="mentors" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Mentors</button>
+            </li>
+            <li>
+              <button type="button" name="benefit" value="true" onClick={this.handleBtnClick} className="btn  sidebarBtn">Benefit</button>
+            </li>
+            <li>
+              <button type="button" name="staff" value="true" onClick={this.handleBtnClick} className="btn  sidebarStaffBtn">Staff</button>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+</Col>
+{/* md="4" */}
+          {/* <Col >
             <div className="buttonBox">
               <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="mngBtn btn btn-primary " >Add Volunteer</button>
               <br/>
@@ -218,8 +264,8 @@ class Manager extends Component {
               <button type="button" name="staff" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Staff</button>
               <br/>
             </div>
-          </Col>
-          <Col md="8">
+          </Col> */}
+          <Col md="9">
             <div className="dynamicBox">
                 <h2>Manage Volunteers!</h2>
 

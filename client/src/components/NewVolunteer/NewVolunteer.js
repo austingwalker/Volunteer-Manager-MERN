@@ -68,7 +68,7 @@ class Manager extends Component {
     let chosenTypes = this.state.volunteerType
     chosenTypes.map(type => {
       if(type.isChecked)
-      arr.push(type.name, ", ")
+      arr.push(type.name)
      
       
      })

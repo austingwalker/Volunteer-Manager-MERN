@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Manager from "./pages/Manager";
 import NewVolunteer from "./components/NewVolunteer";
 import VolunteerList from "./components/VolunteerList";
+import Sidebar from "./components/Sidebar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Detail from "./pages/Detail";
@@ -18,6 +19,7 @@ const App = () => (
       <Switch>
         {/* {/* <Route exact path="/" component={Signup} /> */}
         <Route exact path="/signup" component={Signup} /> 
+        <Route exact path="/sidebar" component={Sidebar} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={Manager} />
         <Route exact path="/manager" component={Manager} />
