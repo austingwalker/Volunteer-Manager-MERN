@@ -62,7 +62,7 @@ class VolunteerList extends Component {
   render() {
     return (
       <Container className="volunteerListContainer" fluid>
-        <Row>
+      <Row>
         <Col>
 
         {/* ---------------------------------------------------------------------------------------------------------------------
@@ -112,11 +112,22 @@ class VolunteerList extends Component {
             volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}singleEmail={this.state.singleEmail}
             handleEmail={this.handleEmail}
             />
+          </Col>
+        </Row>
           
+          <Row>
+            <Col>
+              <label >Click Volunteer to View and Edit Info</label>
+            </Col>
+            <Col>
+              <label className="x">Click the <span className="xColor">✗</span> to delete volunteer</label>
+            </Col>
+          
+          </Row>
+          <Row>
+          <Col>
           <div className="volunteerListBox">
-          <label >Click Volunteer to View and Edit Info</label>
-          <label className="x">Click the <span className="xColor">✗</span> to delete volunteer</label>
-              <List >
+              <List className="listItemsBox">
                 {this.props.volunteers.map(volunteer => (
                   <ListItem key={volunteer._id}>
                     <Link to={"/manager/volunteer/" + volunteer._id} id={volunteer._id}>
@@ -130,7 +141,7 @@ class VolunteerList extends Component {
               </List>
             </div>
           </Col>
-        </Row>
+          </Row>
       </Container> 
     );
   }

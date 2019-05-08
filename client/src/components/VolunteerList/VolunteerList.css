@@ -2,10 +2,10 @@
     text-align: left;
 }
 
-.volunteerListBox {
+/* .volunteerListBox {
     margin-top: 50px;
    
-}
+} */
 
 .x {
     float: right;
@@ -32,6 +32,10 @@ color: #e74944;
 .volName {
     margin-top: 7px;
 }
+
+/* .listItemsBox {
+    width: 100%;
+} */
 
 
 

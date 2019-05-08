@@ -197,13 +197,13 @@ class Manager extends Component {
 
       
         <Row>
-<Col md="2" className="sidebarCol">
+        <Col md="2" className="sidebarCol">
           <div className="wrapper wrapperBox">
     
-    <nav  className="sidebarBox">
+          <nav  className="sidebarBox">
   
 
-        <ul className="list-unstyled components">
+          <ul className="list-unstyled components">
            
             <li className="active">
               <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="sidebarBtn btn  " >Add Volunteer</button>
@@ -267,7 +267,7 @@ class Manager extends Component {
           </Col> */}
           <Col md="10">
             <div className="dynamicBox">
-                <h2>Manage Volunteers!</h2>
+            {this.state.addVolunteer ? <h2></h2> : <h2>Manage Volunteers!</h2>}
 
                 {this.state.addVolunteer ? <NewVolunteer/> : null}
                 {this.state.btnClicked ? 

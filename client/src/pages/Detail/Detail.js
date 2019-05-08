@@ -72,11 +72,33 @@ class Detail extends Component {
         </Row>
         
         <Row>
-        
+        {/* <Col md="5" className="infoBoxCol">
+          <div class="card">
+            <div class="card-header">
+            {this.state.volunteer.firstName} {this.state.volunteer.lastName}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Email:</strong> {this.state.volunteer.email}</li>
+              <li class="list-group-item"><strong>Gender:</strong> {this.state.volunteer.gender}</li>
+              <li class="list-group-item"><strong>Type of Volunteer:</strong> {this.state.types}</li>
+            </ul>
+          </div>
+          </Col> */}
           <Col md="5" className="infoBoxCol">
             <article className="infoBox">
-              <h1>Volunteer Info</h1>
-              <h3>
+              
+              <div class="card">
+                <div class="card-header">
+                <h1>Volunteer Info</h1>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Name:</strong> {this.state.volunteer.firstName} {this.state.volunteer.lastName}</li>
+                  <li class="list-group-item"><strong>Email:</strong> {this.state.volunteer.email}</li>
+                  <li class="list-group-item"><strong>Gender:</strong> {this.state.volunteer.gender}</li>
+                  <li class="list-group-item"><strong>Type of Volunteer:</strong> {this.state.types}</li>
+                </ul>
+               </div>
+              {/* <h3>
                 Name: {this.state.volunteer.firstName} {this.state.volunteer.lastName}
               </h3>
               <h3>
@@ -87,7 +109,7 @@ class Detail extends Component {
               </h3>
               <h3>
                 Type of Volunteer: {this.state.types}
-              </h3>
+              </h3> */}
 
               <button type="button" name="edit" value="true" onClick={this.editClicked} className="btn btn-primary editBtn">Edit Volunteer</button>
             </article>
@@ -97,7 +119,7 @@ class Detail extends Component {
  
           <Col md="7">
             <div className="updateBox">
-                <h2>Update Volunteer!</h2>
+                <h2>Edit Volunteer!</h2>
 
                
                 {this.state.editClicked ? 
