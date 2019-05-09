@@ -109,15 +109,19 @@ class VolunteerList extends Component {
           {/* ----------------------------------------------------------------------------------------------------------------- */}
   
             <EmailBox 
-            volunteers={this.props.volunteers} volunteerEmails={this.props.volunteerEmails}singleEmail={this.state.singleEmail}
+            volunteers={this.props.volunteers} 
+            volunteerEmails={this.props.volunteerEmails}
+            singleEmail={this.state.singleEmail}
             handleEmail={this.handleEmail}
+            title={this.props.title}
+            singularTitle={this.props.singularTitle}
             />
           </Col>
         </Row>
           
           <Row>
             <Col>
-              <label >Click Volunteer to View and Edit Info</label>
+              <label >Click Volunteer's Name to <b>View and Edit Info</b></label>
             </Col>
             <Col>
               <label className="x">Click the <span className="xColor">✗</span> to delete volunteer</label>

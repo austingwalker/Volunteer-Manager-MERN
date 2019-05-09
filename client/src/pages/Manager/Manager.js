@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Container, Row, Col } from 'reactstrap';
 import VolunteerList from "../../components/VolunteerList";
 import NewVolunteer from "../../components/NewVolunteer";
+import Landing from "../../components/Landing";
 import "./Manager.css"
 
 
@@ -12,7 +13,10 @@ class Manager extends Component {
     volunteerEmails: [],
     btnClicked: false,
     addVolunteer: false,
-    whichBtn: ""
+    vols: false,
+    whichBtn: "",
+    title: "",
+    singularTitle: ""
   };
 
  //Add Volunteer Form
@@ -87,7 +91,7 @@ class Manager extends Component {
     API.getVolunteers()
     .then(res => {
       console.log(res)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "allVolunteers"})
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "allVolunteers", title: "Volunteers", singularTitle: "Volunteer"})
     })
     .catch(err => console.log(err));   
   }
@@ -97,7 +101,7 @@ class Manager extends Component {
     API.getCoaches()
     .then(res => {
       console.log("Coaches Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "coaches" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "coaches", title: "Coaches", singularTitle: "Coach" })
     })
     .catch(err => console.log(err));   
   }
@@ -107,7 +111,7 @@ class Manager extends Component {
     API.getGameday()
     .then(res => {
       console.log("Gameday Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "gameday" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "gameday", title: "Gameday Volunteers", singularTitle: "Gameday Volunteer" })
     })
     .catch(err => console.log(err));   
   }
@@ -117,7 +121,7 @@ class Manager extends Component {
     API.getFieldm()
     .then(res => {
       console.log("Fieldm Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "fieldm" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "fieldm", title: "Field Maintenance Volunteers", singularTitle: "Field Maintenance Volunteer" })
     })
     .catch(err => console.log(err));   
   }
@@ -127,7 +131,7 @@ class Manager extends Component {
     API.getUmpires()
     .then(res => {
       console.log("Umpires Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "umpires" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "umpires", title: "Umpires", singularTitle: "Umpire" })
     })
     .catch(err => console.log(err));   
   }
@@ -137,7 +141,7 @@ class Manager extends Component {
     API.getTeamp()
     .then(res => {
       console.log("Team Parents Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "teamp" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "teamp", title: "Team Parents", singularTitle: "Team Parent" })
     })
     .catch(err => console.log(err));   
   }
@@ -147,7 +151,7 @@ class Manager extends Component {
     API.getMentors()
     .then(res => {
       console.log("Mentors Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "mentors" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "mentors", title: "Mentors", singularTitle: "Mentor" })
     })
     .catch(err => console.log(err));   
   }
@@ -157,7 +161,7 @@ class Manager extends Component {
     API.getBenefit()
     .then(res => {
       console.log("Benefit Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "benefit" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "benefit", title: "Benefit Volunteers", singularTitle: "Benefit Volunteer" })
     })
     .catch(err => console.log(err));   
   }
@@ -167,7 +171,7 @@ class Manager extends Component {
     API.getStaff()
     .then(res => {
       console.log("Staff Response " + res.data)
-      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "staff" })
+      this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "staff", title: "Staff", singularTitle: "Staff Member" })
     })
     .catch(err => console.log(err));   
   }
@@ -240,34 +244,10 @@ class Manager extends Component {
 
 </div>
 </Col>
-{/* md="4" */}
-          {/* <Col >
-            <div className="buttonBox">
-              <button type="button" name="addVolunteer" value='true' onClick={this.addVolunteerClicked} className="mngBtn btn btn-primary " >Add Volunteer</button>
-              <br/>
-              <button type="button" name="allVolunteers" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn" >All Volunteers</button>
-              <br/>
-              <button type="button" name="coaches" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Coaches</button>
-              <br/>
-              <button type="button" name="gameday" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Gameday</button>
-              <br/>
-              <button type="button" name="fieldm" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Field Maintenance</button>
-              <br/>
-              <button type="button" name="umpires" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Umpires</button>
-              <br/>
-              <button type="button" name="teamp" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Team Parents</button>
-              <br/>
-              <button type="button" name="mentors" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Mentors</button>
-              <br/>
-              <button type="button" name="benefit" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Benefit</button>
-              <br/>
-              <button type="button" name="staff" value="true" onClick={this.handleBtnClick} className="btn btn-primary mngBtn">Staff</button>
-              <br/>
-            </div>
-          </Col> */}
           <Col md="10">
             <div className="dynamicBox">
-            {this.state.addVolunteer ? <h2></h2> : <h2>Manage Volunteers!</h2>}
+            {this.state.addVolunteer ? null : this.state.btnClicked ?  <h2>Manage {this.state.title}</h2> : <Landing/>} 
+            
 
                 {this.state.addVolunteer ? <NewVolunteer/> : null}
                 {this.state.btnClicked ? 
@@ -283,7 +263,8 @@ class Manager extends Component {
                   renderMentors={this.renderMentors}
                   renderBenefit={this.renderBenefit}
                   renderStaff={this.renderStaff}
-
+                  title={this.state.title}
+                  singularTitle={this.state.singularTitle}
                   whichBtn={this.state.whichBtn}
                   />  
                   : null }    

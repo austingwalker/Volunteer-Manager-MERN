@@ -13,7 +13,7 @@ const EmailBox = props => {
         <form className="singleVolunteersBox" method="post" action={`mailto:${props.singleEmail}`}>
      
             <div className="form-group">
-                <label >Select a Specific Volunteer to Email</label>
+                <label >Select a Specific {props.singularTitle} to Email</label>
                 <select className="form-control" id="exampleFormControlSelect1" placeholder="Email Addresses" value={props.singleEmail} onChange={props.handleEmail}> >
                 <option defaultValue>Choose...</option>
                 {props.volunteers.map(volunteer => (
@@ -28,7 +28,7 @@ const EmailBox = props => {
         <form className="allVolunteersBox" method="post" action={`mailto:${emails}`}>
          
             <div>
-            <label >Email All Volunteers</label>
+            <label >Email All {props.title}</label>
             </div>
             <button type="submit" className="btn btn-primary emailBtn">Email</button>
         </form>
