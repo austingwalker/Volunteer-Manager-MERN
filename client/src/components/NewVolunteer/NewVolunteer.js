@@ -18,21 +18,15 @@ class Manager extends Component {
       {name: "Umpire", isChecked: false},
       {name: "Team Parent", isChecked: false},
       {name: "Mentor", isChecked: false},
-      {name: "Benefit", isChecked: false},
+      {name: "Benefit Volunteer", isChecked: false},
       {name: "Staff", isChecked: false},
-
     ]
   };
 
- 
   capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-
-    
-
 }
   
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -41,38 +35,56 @@ class Manager extends Component {
   };
 
   handleGender = e => {
-
       this.setState({ gender: e.target.value})
   }
 
-  handleCheck = event => {
+  // handleChange(event) {
+  //   this.setState({value: event.target.value});
+  // }
 
+  handleCheck = event => {
    let volunteerType = this.state.volunteerType
    volunteerType.forEach(type => {
      if(type.name === event.target.value)
      type.isChecked = event.target.checked
     })
    this.setState({volunteerType: volunteerType})
-
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-
-    console.log("First Name: " + this.state.firstName)
-    console.log("Last Name: " + this.state.lastName)
-    console.log("Email: " + this.state.email)
-    console.log("Gender: " + this.state.gender)
-
     let arr = []
     let chosenTypes = this.state.volunteerType
     chosenTypes.map(type => {
       if(type.isChecked)
       arr.push(type.name)
-     
-      
      })
-     console.log("Volunteer types: " + arr)
+     if (!this.state.firstName) {
+       alert("Please add a first name")
+     } else {
+       console.log("first name true")
+     }
+     if (!this.state.lastName) {
+      alert("Please add a last name")
+    } else {
+      console.log("last name tru")
+    }
+    if (!this.state.gender) {
+      alert("Please select a gender")
+    } else {
+      console.log("gender true")
+    }
+    if (!arr) {
+      alert("Please select one or more volunteer types")
+    } else {
+      console.log("arr true")
+    }
+    if (!this.state.email) {
+      // /.+@.+\..+/
+      alert("Please enter a valid email address")
+    } else {
+      console.log("email true")
+    }
     
     if (this.state.firstName && this.state.lastName && this.state.gender && arr && this.state.email) {
       API.saveVolunteer({
@@ -83,9 +95,7 @@ class Manager extends Component {
         volunteerType: arr,
       })
         .then(res => {
-          
           alert(`Volunteer ${this.capitalize(this.state.firstName)} ${this.capitalize(this.state.lastName)} was added to your database!`)
-        
           this.setState({
             firstName: "",
             lastName: "",
@@ -100,11 +110,12 @@ class Manager extends Component {
               {name: "Mentor", isChecked: false},
               {name: "Benefit Volunteer", isChecked: false},
               {name: "Staff", isChecked: false},
-        
             ]
           })
         })
         .catch(err => console.log(err));
+    } else {
+      alert("error adding volunteer to database")
     }
   };
 
@@ -133,10 +144,11 @@ class Manager extends Component {
               </div>
               <div className="form-group col-md-6 genderBox">
                   <label >Gender:</label>
-                  <select id="inputState" className="form-control" value={this.state.title} onChange={this.handleGender}>
+                  {/* value={this.state.title} */}
+                  <select id="inputState" className="form-control" value={this.state.gender} onChange={this.handleGender}>
                     <option defaultValue>Choose...</option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                   </select>
               </div>
               <label>Volunteer Type (choose all that apply):</label>

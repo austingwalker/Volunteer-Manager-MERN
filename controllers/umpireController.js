@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the umpireController
 module.exports = {
   findUmpires: function(req, res) {
-    console.log("Get umpires in Controller hit")
     db.Volunteer
       .find({volunteerType: "Umpire"})
       .sort({ lastName: 1 })

@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the fieldmController
 module.exports = {
   findFieldm: function(req, res) {
-    console.log("Get fieldm in Controller hit")
     db.Volunteer
       .find({volunteerType: "Field Maintenance"})
       .sort({ lastName: 1 })

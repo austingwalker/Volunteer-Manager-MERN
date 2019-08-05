@@ -86,7 +86,7 @@ const volunteerSeed = [
     lastName: "Parker",
     email: "mat@mat.com",
     gender: "Male",
-    volunteerType: ["Coach", ", ", "Gameday Volunteer", "Staff", "Umpire", "Mentor", "Field Maintenance"],
+    volunteerType: ["Coach", "Gameday Volunteer", "Staff", "Umpire", "Mentor", "Field Maintenance"],
     date: new Date(Date.now())
   },
   {

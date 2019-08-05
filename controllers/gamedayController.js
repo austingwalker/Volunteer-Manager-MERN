@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the gamedayController
 module.exports = {
   findGameday: function(req, res) {
-    console.log("Get gameday in Controller hit")
     db.Volunteer
       .find({volunteerType: "Gameday Volunteer"})
       .sort({ lastName: 1 })

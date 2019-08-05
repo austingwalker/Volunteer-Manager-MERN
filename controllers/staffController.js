@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the staffController
 module.exports = {
   findStaff: function(req, res) {
-    console.log("Get staff in Controller hit")
     db.Volunteer
       .find({volunteerType: "Staff"})
       .sort({ lastName: 1 })

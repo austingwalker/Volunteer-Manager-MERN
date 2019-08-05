@@ -6,6 +6,18 @@
     text-align: center;
     background-color: white;
 } */
+
+.containerBox {
+    min-height: 100%;
+    padding: 0;
+    
+}
+
+.container {
+    min-height: 100%;
+    
+}
+
 .sidebarBox {
     height: 100%;
     width: 100%;
@@ -50,6 +62,8 @@
     border-right: 2px solid grey;
     border-radius: 0;
     text-align: left;
+    padding-left: 25px;
+    
 }
 
 .sidebarStaffBtn {
@@ -58,10 +72,11 @@
     background-color: white;
     color: black;
     border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid grey;
     border-right: 2px solid grey;
     border-radius: 0;
     text-align: left;
+    padding-left: 25px;
 }
 
 .sidebarStaffBtn:hover {

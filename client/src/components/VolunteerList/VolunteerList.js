@@ -14,45 +14,84 @@ class VolunteerList extends Component {
    singleEmail: ""
  }
 
+ deleteVolunteer = id => {
+  API.deleteVolunteer(id)
+    .then(res => {
+      console.log("Which btn: " + this.props.whichBtn)
+      this.discern()
+    })
+    .catch(err => console.log(err));
+};
 
-  deleteVolunteer = id => {
-    API.deleteVolunteer(id)
-      .then(res => {
-        console.log("Which btn: " + this.props.whichBtn)
-        this.discern()
-      })
-      .catch(err => console.log(err));
-  };
-
-  discern = () => {
-    if(this.props.whichBtn === "allVolunteers"){
-      this.props.renderAll()
-    }
-    if(this.props.whichBtn === "coaches"){
-      this.props.renderCoaches()
-    }
-    if(this.props.whichBtn === "gameday"){
-      this.props.renderGameday()
-    }
-    if(this.props.whichBtn === "fieldm"){
-      this.props.renderFieldm()
-    }
-    if(this.props.whichBtn === "umpires"){
-      this.props.renderUmpires()
-    }
-    if(this.props.whichBtn === "teamp"){
-      this.props.renderTeamp()
-    }
-    if(this.props.whichBtn === "mentors"){
-      this.props.renderMentors()
-    }
-    if(this.props.whichBtn === "benefit"){
-      this.props.renderBenefit()
-    }
-    if(this.props.whichBtn === "staff"){
-      this.props.renderStaff()
-    } 
+discern = () => {
+  if(this.props.whichBtn === "volunteers"){
+    this.props.getVolunteers("volunteers")
   }
+  if(this.props.whichBtn === "Coach"){
+    this.props.getVolunteers("Coach")
+  }
+  if(this.props.whichBtn === "Gameday_Volunteer"){
+    this.props.getVolunteers("Gameday_Volunteer")
+  }
+  if(this.props.whichBtn === "Field_Maintenance"){
+    this.props.getVolunteers("Field_Maintenance")
+  }
+  if(this.props.whichBtn === "Umpire"){
+    this.props.getVolunteers("Umpire")
+  }
+  if(this.props.whichBtn === "Team_Parent"){
+    this.props.getVolunteers("Team_Parent")
+  }
+  if(this.props.whichBtn === "Mentor"){
+    this.props.getVolunteers("Mentor")
+  }
+  if(this.props.whichBtn === "Benefit_Volunteer"){
+    this.props.getVolunteers("Benefit_Volunteer")
+  }
+  if(this.props.whichBtn === "Staff"){
+    this.props.getVolunteers("Staff")
+  } 
+}
+
+ // Original
+  // deleteVolunteer = id => {
+  //   API.deleteVolunteer(id)
+  //     .then(res => {
+  //       console.log("Which btn: " + this.props.whichBtn)
+  //       this.discern()
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+  // discern = () => {
+  //   if(this.props.whichBtn === "allVolunteers"){
+  //     this.props.renderAll()
+  //   }
+  //   if(this.props.whichBtn === "coaches"){
+  //     this.props.renderCoaches()
+  //   }
+  //   if(this.props.whichBtn === "gameday"){
+  //     this.props.renderGameday()
+  //   }
+  //   if(this.props.whichBtn === "fieldm"){
+  //     this.props.renderFieldm()
+  //   }
+  //   if(this.props.whichBtn === "umpires"){
+  //     this.props.renderUmpires()
+  //   }
+  //   if(this.props.whichBtn === "teamp"){
+  //     this.props.renderTeamp()
+  //   }
+  //   if(this.props.whichBtn === "mentors"){
+  //     this.props.renderMentors()
+  //   }
+  //   if(this.props.whichBtn === "benefit"){
+  //     this.props.renderBenefit()
+  //   }
+  //   if(this.props.whichBtn === "staff"){
+  //     this.props.renderStaff()
+  //   } 
+  // }
 
   handleEmail = e => {
 

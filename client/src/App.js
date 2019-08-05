@@ -8,14 +8,16 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import Wrapper from "./components/Wrapper";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import "./App.css";
 
 const App = () => (
   <Router>
-    <div>
+    <div className="siteContent">
     <Nav/>
+    <Wrapper>
       <Switch>
         {/* {/* <Route exact path="/" component={Signup} /> */}
         <Route exact path="/signup" component={Signup} /> 
@@ -28,9 +30,10 @@ const App = () => (
         <Route exact path="/manager/volunteer/:id" component={Detail} />
         <Route component={NoMatch} />
       </Switch>
-     <Footer/> 
+      </Wrapper>
+     <Footer className="footerTag"/> 
     </div>
-  </Router>
+  </Router> 
 );
 
 export default App;

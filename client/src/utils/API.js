@@ -1,44 +1,58 @@
 import axios from "axios";
 
 export default {
-  // Gets all volunteers
-  getVolunteers: function() {
-    return axios.get("/api/volunteers");
-  },
-  //  Gets all coaches
-   getCoaches: function() {
-     console.log("Get coaches in API hit")
-    return axios.get("/api/coaches");
-  },
 
-getGameday: function() {
-  console.log("Get getGameday in API hit")
- return axios.get("/api/gameday");
-},
-getFieldm: function() {
-  console.log("Get getFieldm in API hit")
- return axios.get("/api/fieldm");
-},
-getUmpires: function() {
-  console.log("Get getUmpires in API hit")
- return axios.get("/api/umpires");
-},
-getTeamp: function() {
-  console.log("Get getTeamp in API hit")
- return axios.get("/api/teamp");
-},
-getMentors: function() {
-  console.log("Get getMentors in API hit")
- return axios.get("/api/mentors");
-},
-getBenefit: function() {
-  console.log("Get getBenefit in API hit")
- return axios.get("/api/benefit");
-},
-getStaff: function() {
-  console.log("Get getStaff in API hit")
- return axios.get("/api/staff");
-},
+   // test
+   getVolunteers: function(volType) {
+     console.log(volType)
+    return axios.get("/api/" + volType);
+  },
+//   getAllVolunteers: function(volType) {
+//     console.log(volType)
+//     return axios.get("/api/" + volType);
+//  },
+
+//   getVolunteersByType: function(volType) {
+//     console.log(volType)
+//    return axios.get("/api/volunteers/" + volType);
+//  },
+
+//------------------------------------------------
+
+// Origionals
+
+// getVolunteers: function() {
+//   return axios.get("/api/volunteers");
+// },
+  
+// getCoaches: function() {
+//   return axios.get("/api/coaches");
+// },
+
+// getGameday: function() {
+//  return axios.get("/api/gameday");
+// },
+// getFieldm: function() {
+//  return axios.get("/api/fieldm");
+// },
+// getUmpires: function() {
+//  return axios.get("/api/umpires");
+// },
+// getTeamp: function() {
+//  return axios.get("/api/teamp");
+// },
+// getMentors: function() {
+//  return axios.get("/api/mentors");
+// },
+// getBenefit: function() {
+//  return axios.get("/api/benefit");
+// },
+// getStaff: function() {
+//  return axios.get("/api/staff");
+// },
+
+//------------------------------------------------
+
   // Gets the volunteer with the given id
   getVolunteer: function(id) {
     return axios.get("/api/volunteers/" + id);
@@ -48,7 +62,6 @@ getStaff: function() {
     return axios.delete("/api/volunteers/" + id);
   },
   updateVolunteer: function(volunteerData) {
-    console.log("Put updateVol in API hit")
     return axios.put("/api/update", volunteerData);
   },
   // Saves a volunteer to the database
