@@ -29,9 +29,25 @@ color: #e74944;
     
 }
 
-.volName {
-    margin-top: 7px;
+.volTableName {
+    color: black;
 }
+
+.tableEditBtn {
+    background-color:#002D72;
+    color: white;
+}
+
+.tableDeleteBtn {
+    background-color:#D50032;
+    color: white;
+}
+
+
+
+/* .volName {
+    margin-top: 7px;
+} */
 
 /* .listItemsBox {
     width: 100%;

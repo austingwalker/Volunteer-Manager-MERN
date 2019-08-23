@@ -42,99 +42,72 @@ handleBtnClick = event => {
         });
         switch (name) {
           case "allVolunteers":
-          //New
           this.setState({
             title: "Volunteers",
             singularTitle: "Volunteer"
           })
           this.getVolunteers("volunteers");
-          //original
-            // this.renderAllVolunteers();
             break;
           case "coaches":
-          //New
           this.setState({
             title: "Coaches",
             singularTitle: "Coach"
           })
           this.getVolunteers("Coach");
-          //original
-            // this.renderCoaches();
             break; 
           case "gameday":
-          //New
           this.setState({
             title: "Gameday Volunteers",
             singularTitle: "Gameday Volunteer"
           })
           this.getVolunteers("Gameday_Volunteer");
-          //original
-            // this.renderGameday();
             break; 
           case "fieldm":
-          //New
           this.setState({
             title: "Field Maintenance Volunteers",
             singularTitle: "Field Maintenance Volunteer"
           })
           this.getVolunteers("Field_Maintenance");
-          //original
-            // this.renderFieldm();
             break; 
           case "umpires":
-           //New
            this.setState({
             title: "Umpires",
             singularTitle: "Umpire"
           })
            this.getVolunteers("Umpire");
-           //original
-            // this.renderUmpires();
             break; 
           case "teamp":
-          //New
           this.setState({
             title: "Team Parents",
             singularTitle: "Team Parent"
           })
           this.getVolunteers("Team_Parent");
-          //original
-            // this.renderTeamp();
             break; 
           case "mentors":
-          //New
           this.setState({
             title: "Mentors",
             singularTitle: "Mentor"
           })
           this.getVolunteers("Mentor");
-          //original
-            // this.renderMentors();
             break; 
           case "benefit":
-          //New
           this.setState({
             title: "Benefit Volunteers",
             singularTitle: "Benefit Volunteer"
           })
           this.getVolunteers("Benefit_Volunteer");
-          //original
-            // this.renderBenefit();
             break; 
           case "staff":
-          //New
           this.setState({
             title: "Staff",
             singularTitle: "Staff Member"
           })
           this.getVolunteers("Staff");
-          //original
-            // this.renderStaff();
             break; 
           }
   }
 
-//New
+
 getVolunteers = (volType) => {
     API.getVolunteers(volType)
     .then(res => {
@@ -142,99 +115,7 @@ getVolunteers = (volType) => {
       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: volType})
     })
     .catch(err => console.log(err));   
-  }
-
-
-// //All Volunteers
-//   renderAllVolunteers = () => {
-//     API.getVolunteers()
-//     .then(res => {
-//       console.log(res)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "allVolunteers", title: "Volunteers", singularTitle: "Volunteer"})
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Coaches
-//   renderCoaches = () => {
-//     API.getCoaches()
-//     .then(res => {
-//       console.log("Coaches Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "coaches", title: "Coaches", singularTitle: "Coach" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //All Gameday
-//   renderGameday = () => {
-//     API.getGameday()
-//     .then(res => {
-//       console.log("Gameday Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "gameday", title: "Gameday Volunteers", singularTitle: "Gameday Volunteer" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Field Maintenance
-//   renderFieldm = () => {
-//     API.getFieldm()
-//     .then(res => {
-//       console.log("Fieldm Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "fieldm", title: "Field Maintenance Volunteers", singularTitle: "Field Maintenance Volunteer" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Umpires
-//   renderUmpires = () => {
-//     API.getUmpires()
-//     .then(res => {
-//       console.log("Umpires Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "umpires", title: "Umpires", singularTitle: "Umpire" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Team Parents
-//   renderTeamp = () => {
-//     API.getTeamp()
-//     .then(res => {
-//       console.log("Team Parents Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "teamp", title: "Team Parents", singularTitle: "Team Parent" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Mentors
-//   renderMentors = () => {
-//     API.getMentors()
-//     .then(res => {
-//       console.log("Mentors Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "mentors", title: "Mentors", singularTitle: "Mentor" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Benefit
-//   renderBenefit = () => {
-//     API.getBenefit()
-//     .then(res => {
-//       console.log("Benefit Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "benefit", title: "Benefit Volunteers", singularTitle: "Benefit Volunteer" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
-// //Staff
-//   renderStaff = () => {
-//     API.getStaff()
-//     .then(res => {
-//       console.log("Staff Response " + res.data)
-//       this.setState({ volunteers: res.data, volunteerEmails: res.data.email, whichBtn: "staff", title: "Staff", singularTitle: "Staff Member" })
-//     })
-//     .catch(err => console.log(err));   
-//   }
-
+}
 
 
   // Reset State
@@ -305,15 +186,6 @@ getVolunteers = (volType) => {
                   volunteers={this.state.volunteers} 
                   volunteerEmails={this.state.volunteerEmails}
                   getVolunteers={this.getVolunteers}
-                  // renderAll={this.renderAllVolunteers}
-                  // renderCoaches={this.renderCoaches}
-                  // renderGameday={this.renderGameday}
-                  // renderFieldm={this.renderFieldm}
-                  // renderUmpires={this.renderUmpires}
-                  // renderTeamp={this.renderTeamp}
-                  // renderMentors={this.renderMentors}
-                  // renderBenefit={this.renderBenefit}
-                  // renderStaff={this.renderStaff}
                   title={this.state.title}
                   singularTitle={this.state.singularTitle}
                   whichBtn={this.state.whichBtn}

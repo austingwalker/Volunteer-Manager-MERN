@@ -16,6 +16,10 @@
     background-color: white;
 }
 
+.detailInfo {
+    color: black;
+}
+
 .updateBox {
     margin: 20px;
     margin-top: 0px;
@@ -46,9 +50,6 @@
     border: none;
     margin-top: 20px;
     margin-left: 0px;
-   
-   
-    
 }
 
 .editBtn:hover {

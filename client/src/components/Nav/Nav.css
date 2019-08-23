@@ -1,5 +1,6 @@
 .navbar {
-    background: url("http://i63.tinypic.com/eg1umw.jpg");
+    background: url("/assets/images/mlbColors.jpg");
+    /* http://i63.tinypic.com/eg1umw.jpg */
     /* background-repeat: no-repeat; */
     background-position: center;
 }
